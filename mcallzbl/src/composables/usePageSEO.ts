@@ -55,7 +55,7 @@ export function usePageSEO(config: PageSEOConfig = {}) {
     const currentLang = locale.value as SupportedLanguage
 
     useSEO({
-      title: title || `${t('profile.name')} - ${t('profile.education')}`,
+      title: title || 'mcallzbl',
       description: description || t('profile.welcomeQuote'),
       keywords: keywords || `mcallzbl, ${t('profile.education')}, ${t('profile.focus')}, ${t('profile.backend')}, Software Engineer, Backend Developer`,
       author,
