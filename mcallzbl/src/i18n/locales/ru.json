@@ -1,0 +1,40 @@
+{
+  "common": {
+    "hello": "Привет",
+    "welcome": "Добро пожаловать",
+    "language": "Язык",
+    "home": "Главная",
+    "about": "О себе",
+    "contact": "Контакты"
+  },
+  "navigation": {
+    "home": "Главная",
+    "about": "О себе"
+  },
+  "messages": {
+    "loading": "Загрузка...",
+    "error": "Произошла ошибка",
+    "success": "Операция выполнена успешно"
+  },
+  "profile": {
+    "greeting": "Привет, я",
+    "name": "mcallzbl",
+    "phonetic": "/məkˈɔːl.zɪbəl/",
+    "education": "Образование и опыт",
+    "university": "Студент Северо-Восточного университета (Китай)",
+    "major": "Специальность: Программная инженерия",
+    "focus": "Основное направление: Backend-разработка",
+    "techStack": "Технологический стек",
+    "backend": "Backend",
+    "languages": "Языки программирования",
+    "frameworks": "Фреймворки",
+    "databases": "Базы данных",
+    "messageQueue": "Очередь сообщений",
+    "devOps": "DevOps",
+    "welcomeQuote": "Добро пожаловать на мою домашнюю страницу. Пусть у нас будет лучшее завтра."
+  },
+  "punctuation": {
+    "quoteStart": "\"",
+    "quoteEnd": "\""
+  }
+}

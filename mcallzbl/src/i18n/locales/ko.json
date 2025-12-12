@@ -1,0 +1,40 @@
+{
+  "common": {
+    "hello": "안녕하세요",
+    "welcome": "환영합니다",
+    "language": "언어",
+    "home": "홈",
+    "about": "소개",
+    "contact": "연락처"
+  },
+  "navigation": {
+    "home": "홈",
+    "about": "소개"
+  },
+  "messages": {
+    "loading": "로딩 중...",
+    "error": "오류가 발생했습니다",
+    "success": "작업이 성공적으로 완료되었습니다"
+  },
+  "profile": {
+    "greeting": "안녕하세요, 저는",
+    "name": "mcallzbl",
+    "phonetic": "/məkˈɔːl.zɪbəl/",
+    "education": "학력 및 배경",
+    "university": "중국 동북대학교 학생",
+    "major": "전공: 소프트웨어 공학",
+    "focus": "주요 분야: 백엔드 개발",
+    "techStack": "기술 스택",
+    "backend": "백엔드",
+    "languages": "프로그래밍 언어",
+    "frameworks": "프레임워크",
+    "databases": "데이터베이스",
+    "messageQueue": "메시지 큐",
+    "devOps": "DevOps",
+    "welcomeQuote": "제 홈페이지에 오신 것을 환영합니다. 우리 모두 더 밝은 내일이 되기를 바랍니다."
+  },
+  "punctuation": {
+    "quoteStart": "\"",
+    "quoteEnd": "\""
+  }
+}

@@ -1,0 +1,179 @@
+<script setup lang="ts">
+import { ref, computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { isRTLLanguage } from '@/config/languages'
+import { usePageSEO } from '@/composables/usePageSEO'
+import LanguageSelector from '@/components/LanguageSelector.vue'
+import HeroSection from '@/components/HeroSection.vue'
+import DynamicBackground from '@/components/DynamicBackground.vue'
+
+const { locale } = useI18n()
+
+// RTL 语言检测
+const isRTL = computed(() => isRTLLanguage(locale.value as string))
+
+// 页面可见性控制（用于初始动画）
+const isVisible = ref(false)
+
+// 动态背景效果类型：每次随机选择
+const effects: Array<'particles' | 'formulas' | 'hello-world'> = ['particles', 'formulas', 'hello-world']
+const randomEffect = effects[Math.floor(Math.random() * effects.length)] as 'particles' | 'formulas' | 'hello-world'
+const backgroundEffect = ref<'particles' | 'code' | 'formulas' | 'hello-world'>(randomEffect)
+
+// 设置页面 SEO
+usePageSEO()
+
+// 初始化
+onMounted(() => {
+  setTimeout(() => {
+    isVisible.value = true
+  }, 100)
+})
+</script>
+
+<template>
+  <div class="app" :class="{ 'loaded': isVisible, 'rtl': isRTL }" :dir="isRTL ? 'rtl' : 'ltr'">
+    <!-- Static Background Pattern -->
+    <div class="bg-pattern"></div>
+
+    <!-- Dynamic Background Effects -->
+    <DynamicBackground :effect="backgroundEffect" color="#22c55e" :density="1" />
+
+    <!-- Language Selector -->
+    <LanguageSelector />
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="left-column">
+        <HeroSection />
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Fira Code', monospace;
+  position: relative;
+  overflow-x: hidden;
+  background: transparent;
+  color: #e4e4e7;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Mode (Hacker/GitHub style) */
+.app:not(.light-mode) {
+  color: #e6edf3;
+}
+
+.app:not(.light-mode) .bg-pattern {
+  background-color: #0d1117;
+  background-image:
+    /* Terminal green matrix effect */
+    radial-gradient(circle at 1px 1px, rgba(34, 197, 94, 0.15) 1px, transparent 1px),
+    /* Grid pattern */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 24px,
+      rgba(34, 197, 94, 0.03) 24px,
+      rgba(34, 197, 94, 0.03) 25px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 24px,
+      rgba(34, 197, 94, 0.03) 24px,
+      rgba(34, 197, 94, 0.03) 25px
+    );
+  background-size: 50px 50px, 100% 100%, 100% 100%;
+  animation: matrix-rain 20s linear infinite;
+}
+
+/* Light Mode (Clean minimalist) */
+.app.light-mode {
+  color: #1f2937;
+}
+
+.app.light-mode .bg-pattern {
+  background-color: #f8fafc !important;
+  background-image:
+    /* Subtle dots */
+    radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: none !important;
+}
+
+@keyframes matrix-rain {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  100% { background-position: 50px 0, 0 0, 0 0; }
+}
+
+.app.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bg-pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  transition: all 0.5s ease;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* RTL Support */
+.app.rtl {
+  direction: rtl;
+}
+
+.app.rtl .text-content {
+  text-align: center;
+}
+
+.app.rtl .social-links {
+  flex-direction: row-reverse;
+}
+
+/* Arabic Typography */
+.app.rtl {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Fira Code', 'Noto Sans Arabic', sans-serif;
+}
+
+.app.rtl .greeting,
+.app.rtl .name,
+.app.rtl .quote {
+  font-family: 'Noto Sans Arabic', 'Arial', sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+}
+</style>

@@ -1,0 +1,40 @@
+{
+  "common": {
+    "hello": "مرحبا",
+    "welcome": "أهلا بك",
+    "language": "اللغة",
+    "home": "الرئيسية",
+    "about": "حول",
+    "contact": "التواصل"
+  },
+  "navigation": {
+    "home": "الرئيسية",
+    "about": "حول"
+  },
+  "messages": {
+    "loading": "جاري التحميل...",
+    "error": "حدث خطأ",
+    "success": "تمت العملية بنجاح"
+  },
+  "profile": {
+    "greeting": "مرحبا، أنا",
+    "name": "mcallzbl",
+    "phonetic": "/məkˈɔːl.zɪbəl/",
+    "education": "التعليم والخبرة",
+    "university": "طالب في جامعة الشمال الشرقي (الصين)",
+    "major": "التخصص: هندسة البرمجيات",
+    "focus": "التركيز الأساسي: تطوير الواجهة الخلفية",
+    "techStack": "مجموعة التقنيات",
+    "backend": "الواجهة الخلفية",
+    "languages": "لغات البرمجة",
+    "frameworks": "الأطر",
+    "databases": "قواعد البيانات",
+    "messageQueue": "طابور الرسائل",
+    "devOps": "DevOps",
+    "welcomeQuote": "مرحبا بك في موقعي. أتمنى أن يكون غدنا أكثر إشراقا."
+  },
+  "punctuation": {
+    "quoteStart": "«",
+    "quoteEnd": "»"
+  }
+}

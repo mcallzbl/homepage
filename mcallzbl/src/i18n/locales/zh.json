@@ -1,0 +1,40 @@
+{
+  "common": {
+    "hello": "你好",
+    "welcome": "欢迎",
+    "language": "语言",
+    "home": "首页",
+    "about": "关于",
+    "contact": "联系"
+  },
+  "navigation": {
+    "home": "首页",
+    "about": "关于"
+  },
+  "messages": {
+    "loading": "加载中...",
+    "error": "发生错误",
+    "success": "操作成功"
+  },
+  "profile": {
+    "greeting": "你好，我是",
+    "name": "mcallzbl",
+    "phonetic": "/məkˈɔːl.zɪbəl/",
+    "education": "教育背景",
+    "university": "东北大学（中国）学生",
+    "major": "专业：软件工程",
+    "focus": "主要方向：后端开发",
+    "techStack": "技术栈",
+    "backend": "后端",
+    "languages": "编程语言",
+    "frameworks": "框架",
+    "databases": "数据库",
+    "messageQueue": "消息队列",
+    "devOps": "运维工具",
+    "welcomeQuote": "欢迎来访我的主页，愿你我都有更美好的明天。"
+  },
+  "punctuation": {
+    "quoteStart": "“",
+    "quoteEnd": "”"
+  }
+}

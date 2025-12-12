@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mcallzbl.com/sitemap.xml
+
+# Crawl-delay (optional, if needed)
+# Crawl-delay: 1
+
+# Disallow specific paths if any
+# Disallow: /private/
+# Disallow: /admin/
+
+# Allow specific bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /

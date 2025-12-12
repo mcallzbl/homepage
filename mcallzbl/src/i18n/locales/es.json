@@ -1,0 +1,40 @@
+{
+  "common": {
+    "hello": "Hola",
+    "welcome": "Bienvenido",
+    "language": "Idioma",
+    "home": "Inicio",
+    "about": "Acerca de",
+    "contact": "Contacto"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "about": "Acerca de"
+  },
+  "messages": {
+    "loading": "Cargando...",
+    "error": "Ocurrió un error",
+    "success": "Operación exitosa"
+  },
+  "profile": {
+    "greeting": "Hola, soy",
+    "name": "mcallzbl",
+    "phonetic": "/məkˈɔːl.zɪbəl/",
+    "education": "Educación y Antecedentes",
+    "university": "Estudiante de la Universidad del Noreste (China)",
+    "major": "Especialidad: Ingeniería de Software",
+    "focus": "Enfoque principal: Desarrollo Backend",
+    "techStack": "Stack Tecnológico",
+    "backend": "Backend",
+    "languages": "Lenguajes de Programación",
+    "frameworks": "Frameworks",
+    "databases": "Bases de Datos",
+    "messageQueue": "Cola de Mensajes",
+    "devOps": "DevOps",
+    "welcomeQuote": "Bienvenido a mi página web. Que tengamos un mañana más brillante."
+  },
+  "punctuation": {
+    "quoteStart": "\"",
+    "quoteEnd": "\""
+  }
+}

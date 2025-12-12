@@ -1,0 +1,40 @@
+{
+  "common": {
+    "hello": "你好",
+    "welcome": "歡迎",
+    "language": "語言",
+    "home": "首頁",
+    "about": "關於",
+    "contact": "聯絡"
+  },
+  "navigation": {
+    "home": "首頁",
+    "about": "關於"
+  },
+  "messages": {
+    "loading": "載入中...",
+    "error": "發生錯誤",
+    "success": "操作成功"
+  },
+  "profile": {
+    "greeting": "你好，我是",
+    "name": "mcallzbl",
+    "phonetic": "/məkˈɔːl.zɪbəl/",
+    "education": "教育與背景",
+    "university": "中國東北大學學生",
+    "major": "專業：軟體工程",
+    "focus": "主要方向：後端開發",
+    "techStack": "技術堆疊",
+    "backend": "後端",
+    "languages": "程式語言",
+    "frameworks": "框架",
+    "databases": "資料庫",
+    "messageQueue": "訊息佇列",
+    "devOps": "DevOps",
+    "welcomeQuote": "歡迎來訪我的主頁，願你我都有更美好的明天。"
+  },
+  "punctuation": {
+    "quoteStart": "“",
+    "quoteEnd": "”"
+  }
+}
