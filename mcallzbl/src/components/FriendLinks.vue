@@ -16,7 +16,10 @@
             @error="onIconError(item)"
           />
         </div>
-        <span class="friend-title">{{ item.title }}</span>
+        <div class="friend-content">
+          <span class="friend-title">{{ item.title }}</span>
+          <span v-if="item.description" class="friend-desc">{{ item.description }}</span>
+        </div>
       </a>
     </div>
   </div>
@@ -32,6 +35,7 @@ import { reactive } from 'vue'
 export interface FriendItem {
   title: string
   url: string
+  description?: string
 }
 
 interface Props {
@@ -108,6 +112,12 @@ const onIconError = (item: FriendItem) => {
   text-decoration: none;
 }
 
+.friend-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* enable ellipsis */
+}
+
 .friend-card:hover {
   transform: translateY(-3px);
   border-color: rgba(34, 197, 94, 0.35);
@@ -132,6 +142,15 @@ const onIconError = (item: FriendItem) => {
 .friend-title {
   font-weight: 600;
   color: var(--color-heading);
+}
+
+.friend-desc {
+  font-size: 0.85rem;
+  color: var(--color-text);
+  opacity: .75;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .friend-links-empty {

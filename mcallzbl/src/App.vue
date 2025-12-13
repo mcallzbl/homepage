@@ -37,9 +37,9 @@ onMounted(() => {
 })
 
 // Friend links configured at app level
-interface FriendItem { title: string; url: string }
+interface FriendItem { title: string; url: string; description?: string }
 const friendItems: FriendItem[] = [
-  { title: 'Jimmy的小屋', url: 'https://blog.jimmypowell.dev' }
+  { title: 'Jimmy的小屋', url: 'https://blog.jimmypowell.dev', description: 'jimmy的小屋 欢迎做客' }
 ]
 </script>
 
