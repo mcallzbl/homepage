@@ -54,6 +54,28 @@ const projects = computed<Project[]>(() => [
       t('portfolio.projects.common.highlights.2'),
       t('portfolio.projects.common.highlights.3')
     ]
+  },
+  {
+    name: 'apklist',
+    description: t('portfolio.projects.apklist.description'),
+    githubUrl: 'https://github.com/mcallzbl/apklist',
+    tags: [
+      'Android',
+      'Kotlin',
+      'Jetpack Compose',
+      'Material 3',
+      'MVVM',
+      'Hilt',
+      'Coroutines',
+      'Flow',
+      'Coil',
+      'Export'
+    ],
+    highlights: [
+      t('portfolio.projects.apklist.highlights.0'),
+      t('portfolio.projects.apklist.highlights.1'),
+      t('portfolio.projects.apklist.highlights.2')
+    ]
   }
 ])
 </script>

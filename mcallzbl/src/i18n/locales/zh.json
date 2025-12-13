@@ -58,6 +58,19 @@
           "2": "开箱即用的用户模块",
           "3": "阿里云 OSS 授权后端"
         }
+      },
+      "apklist": {
+        "description": "一个功能强大的 Android 应用，可一键导出已安装应用清单。支持 JSON/CSV/TXT，搜索与过滤、系统应用识别，Material 3 + Jetpack Compose 现代化界面，并针对大列表做性能优化。",
+        "highlights": {
+          "0": "自动扫描已安装应用",
+          "1": "按名称/包名搜索，支持过滤系统/用户应用",
+          "2": "显示详情：名称、包名、版本、图标",
+          "3": "支持导出为 JSON、CSV、TXT",
+          "4": "现代化界面：Material 3、Jetpack Compose、深浅色主题",
+          "5": "性能优化：异步加载、智能缓存、内存优化滚动",
+          "6": "技术栈：Kotlin、Compose、MVVM、Hilt、Coroutines + Flow、Coil",
+          "7": "导出文件默认保存至 Download/ApkList"
+        }
       }
     }
   },

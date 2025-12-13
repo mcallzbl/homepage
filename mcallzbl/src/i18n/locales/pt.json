@@ -38,6 +38,19 @@
           "2": "Módulo de usuário pronto para uso",
           "3": "Backend de autorização do Aliyun OSS"
         }
+      },
+      "apklist": {
+        "description": "Um aplicativo Android poderoso para listar os apps instalados e exportá‑los com um toque. Suporta JSON/CSV/TXT, busca e filtros, reconhecimento de apps do sistema, interface Material 3 + Jetpack Compose e otimizações de desempenho para listas grandes.",
+        "highlights": {
+          "0": "Varredura automática dos aplicativos instalados",
+          "1": "Busca por nome ou pacote; filtro de apps do sistema/usuário",
+          "2": "Mostra detalhes: nome, pacote, versão, ícone",
+          "3": "Exportação para JSON, CSV ou TXT",
+          "4": "UI moderna: Material 3, Jetpack Compose, tema claro/escuro",
+          "5": "Desempenho: carregamento assíncrono, cache inteligente, rolagem otimizada em memória",
+          "6": "Stack: Kotlin, Compose, MVVM, Hilt, Coroutines + Flow, Coil",
+          "7": "Exportações salvas em Download/ApkList"
+        }
       }
     }
   },

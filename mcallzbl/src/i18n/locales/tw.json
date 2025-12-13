@@ -38,6 +38,19 @@
           "2": "開箱即用的使用者模組",
           "3": "阿里雲 OSS 授權後端"
         }
+      },
+      "apklist": {
+        "description": "一個功能強大的 Android 應用，可一鍵匯出已安裝應用清單。支援 JSON/CSV/TXT、搜尋與過濾、系統應用識別，介面採用 Material 3 + Jetpack Compose，並對大量清單進行效能優化。",
+        "highlights": {
+          "0": "自動掃描已安裝應用",
+          "1": "依名稱/套件名搜尋，支援過濾系統/使用者應用",
+          "2": "顯示詳情：名稱、套件名、版本、圖示",
+          "3": "支援匯出為 JSON、CSV、TXT",
+          "4": "現代化介面：Material 3、Jetpack Compose、深淺色主題",
+          "5": "效能優化：非同步載入、智慧快取、記憶體優化捲動",
+          "6": "技術棧：Kotlin、Compose、MVVM、Hilt、Coroutines + Flow、Coil",
+          "7": "匯出檔預設儲存於 Download/ApkList"
+        }
       }
     }
   },

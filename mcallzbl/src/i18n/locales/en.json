@@ -58,6 +58,19 @@
           "2": "Ready‑to‑use user module",
           "3": "Aliyun OSS authorization backend"
         }
+      },
+      "apklist": {
+        "description": "A powerful Android app to list installed applications and export them with one tap. Supports JSON/CSV/TXT, search & filters, system app recognition, Material 3 + Jetpack Compose UI, and performance optimizations for large app lists.",
+        "highlights": {
+          "0": "Auto-scan installed apps",
+          "1": "Search by app name or package; filter system/user apps",
+          "2": "Show details: name, package, version, icon",
+          "3": "Export to JSON, CSV, or TXT",
+          "4": "Modern UI: Material 3, Jetpack Compose, light/dark theme",
+          "5": "Performance: async loading, smart caching, memory-optimized scrolling",
+          "6": "Tech stack: Kotlin, Compose, MVVM, Hilt, Coroutines + Flow, Coil",
+          "7": "Exports saved to Download/ApkList"
+        }
       }
     }
   },
