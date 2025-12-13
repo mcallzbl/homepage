@@ -29,6 +29,15 @@
           "1": "Funcionalidad AOP construida usando proxies dinámicos",
           "2": "Se logró una comprensión de los mecanismos internos del framework Spring"
         }
+      },
+      "common": {
+        "description": "Módulo de arranque rápido para Spring Boot que ofrece envoltura automática de respuestas, manejo global de excepciones, un módulo de usuario listo para usar y un backend de autorización para Aliyun OSS. Aún no es un starter completo: copie el módulo en un nuevo proyecto y ajuste su pom; incluye AutoConfiguration para el escaneo de componentes pero carece de propiedades de configuración.",
+        "highlights": {
+          "0": "Envoltura automática de respuestas para un payload de API unificado",
+          "1": "Manejo global de excepciones listo para usar",
+          "2": "Módulo de usuario listo para usar",
+          "3": "Backend de autorización de Aliyun OSS"
+        }
       }
     }
   },

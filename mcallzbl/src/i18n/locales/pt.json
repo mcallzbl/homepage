@@ -29,6 +29,15 @@
           "1": "Funcionalidade AOP construída usando proxies dinâmicos",
           "2": "Compreensão alcançada dos internos do framework Spring"
         }
+      },
+      "common": {
+        "description": "Módulo de inicialização rápida para Spring Boot que oferece empacotamento automático de respostas, tratamento global de exceções, um módulo de usuário pronto para uso e um backend de autorização para o Aliyun OSS. Ainda não é um starter completo: copie o módulo para um novo projeto e ajuste o seu pom; possui AutoConfiguration para varredura de componentes, mas carece de propriedades de configuração.",
+        "highlights": {
+          "0": "Empacotamento automático de respostas para payloads de API unificados",
+          "1": "Tratamento global de exceções pronto para uso",
+          "2": "Módulo de usuário pronto para uso",
+          "3": "Backend de autorização do Aliyun OSS"
+        }
       }
     }
   },

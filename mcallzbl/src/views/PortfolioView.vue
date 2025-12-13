@@ -33,6 +33,27 @@ const projects = computed<Project[]>(() => [
       t('portfolio.projects.springlite.highlights.1'),
       t('portfolio.projects.springlite.highlights.2')
     ]
+  },
+  {
+    name: 'common',
+    description: t('portfolio.projects.common.description'),
+    githubUrl: 'https://github.com/mcallzbl/common',
+    tags: [
+      'Java',
+      'Spring Boot',
+      'AutoConfiguration',
+      'Exception Handling',
+      'Response Wrapper',
+      'User Module',
+      'Aliyun OSS',
+      'Starter (WIP)'
+    ],
+    highlights: [
+      t('portfolio.projects.common.highlights.0'),
+      t('portfolio.projects.common.highlights.1'),
+      t('portfolio.projects.common.highlights.2'),
+      t('portfolio.projects.common.highlights.3')
+    ]
   }
 ])
 </script>

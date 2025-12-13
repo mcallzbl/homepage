@@ -49,6 +49,15 @@
           "1": "Built AOP functionality using dynamic proxies",
           "2": "Achieved understanding of Spring framework internals"
         }
+      },
+      "common": {
+        "description": "Spring Boot quick-start module providing response auto‑wrapping, global exception handling, a ready‑to‑use user module, and an authorization backend for Aliyun OSS. Not yet a full‑fledged starter: copy the module into a new project and adjust its pom; it includes AutoConfiguration for component scanning but lacks configuration properties.",
+        "highlights": {
+          "0": "Response auto‑wrapping for unified API payloads",
+          "1": "Global exception handling out of the box",
+          "2": "Ready‑to‑use user module",
+          "3": "Aliyun OSS authorization backend"
+        }
       }
     }
   },

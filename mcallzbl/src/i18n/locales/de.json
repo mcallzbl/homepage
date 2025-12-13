@@ -29,6 +29,15 @@
           "1": "AOP-Funktionalität mit dynamischen Proxies erstellt",
           "2": "Tiefes Verständnis der Spring-Framework-Interna erlangt"
         }
+      },
+      "common": {
+        "description": "Schnellstart‑Modul für Spring Boot mit automatischer Antwortverpackung, globalem Exception‑Handling, einem einsatzbereiten Benutzermodul sowie einem Autorisierungs‑Backend für Aliyun OSS. Noch kein vollwertiger Starter: Modul in ein neues Projekt kopieren und dessen pom anpassen; AutoConfiguration zur Komponenten‑Erkennung vorhanden, aber ohne Konfigurationseigenschaften.",
+        "highlights": {
+          "0": "Automatische Antwortverpackung für ein einheitliches API‑Payload",
+          "1": "Globales Exception‑Handling out‑of‑the‑box",
+          "2": "Einsatzbereites Benutzermodul",
+          "3": "Autorisierungs‑Backend für Aliyun OSS"
+        }
       }
     }
   },
