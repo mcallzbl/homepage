@@ -23,6 +23,8 @@ const isVisible = ref(false)
 const effects: Array<'particles' | 'formulas' | 'hello-world'> = ['particles', 'formulas', 'hello-world']
 const randomEffect = effects[Math.floor(Math.random() * effects.length)] as 'particles' | 'formulas' | 'hello-world'
 const backgroundEffect = ref<'particles' | 'code' | 'formulas' | 'hello-world'>(randomEffect)
+// 延后挂载动态背景，避免阻塞首屏渲染
+const showBackground = ref(false)
 
 // 滚动到作品集
 const portfolioSection = ref<HTMLElement | null>(null)
@@ -35,6 +37,15 @@ onMounted(() => {
   setTimeout(() => {
     isVisible.value = true
   }, 100)
+  // 在空闲或下一帧之后再挂载背景特效，降低对 LCP 的影响
+  const enable = () => { showBackground.value = true }
+  type RequestIdleCallbackFn = (cb: () => void, opts?: { timeout?: number }) => number
+  const ric = (window as Window & { requestIdleCallback?: RequestIdleCallbackFn }).requestIdleCallback
+  if (typeof ric === 'function') {
+    ric(enable, { timeout: 1000 })
+  } else {
+    requestAnimationFrame(() => requestAnimationFrame(enable))
+  }
 })
 
 // Friend links configured at app level
@@ -49,8 +60,8 @@ const friendItems: FriendItem[] = [
     <!-- Static Background Pattern -->
     <div class="bg-pattern"></div>
 
-    <!-- Dynamic Background Effects -->
-    <DynamicBackground :effect="backgroundEffect" color="#22c55e" :density="1" />
+    <!-- Dynamic Background Effects (delayed mount) -->
+    <DynamicBackground v-if="showBackground" :effect="backgroundEffect" color="#22c55e" :density="1" />
 
     <!-- Language Selector -->
     <LanguageSelector />
