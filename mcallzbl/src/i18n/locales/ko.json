@@ -23,7 +23,7 @@
     "highlights": "주요 하이라이트",
     "projects": {
       "springlite": {
-        "description": "IoC와 AOP의 핵심 원리를 이해하기 위해 만들어진 경량 스프링 프레임워크 구현입니다. 이 프로젝트는 스프링 아키텍처와 디자인 패턴에 대한 깊은 지식을 보여줍니다.",
+        "description": "Spring의 핵심 원리(IoC, AOP)를 이해하기 위한 탐구/학습용 프로젝트입니다. 프로덕션용 프레임워크가 아니라, 아키텍처와 디자인 패턴 이해에 초점을 둡니다.",
         "highlights": {
           "0": "빈 생명주기 관리를 포함한 핵심 IoC 컨테이너 구현",
           "1": "동적 프록시를 이용한 AOP 기능 구축",
@@ -52,5 +52,25 @@
   "punctuation": {
     "quoteStart": "\"",
     "quoteEnd": "\""
+  },
+  "home": {
+    "title": "내 포트폴리오에 오신 것을 환영합니다",
+    "subtitle": "풀스택 개발자 | 백엔드 전문가 | 소프트웨어 엔지니어",
+    "scrollDown": "아래로 스크롤",
+    "getStarted": "시작하기",
+    "features": {
+      "fast": {
+        "title": "빠르고 효율적",
+        "description": "최신 기술과 모범 사례로 성능을 최적화했습니다."
+      },
+      "modern": {
+        "title": "모던한 기술 스택",
+        "description": "확장성을 위해 최신 프레임워크와 도구로 구축했습니다."
+      },
+      "beautiful": {
+        "title": "깔끔한 디자인",
+        "description": "모든 기기에서 매끄럽게 동작하는 우아한 반응형 디자인."
+      }
+    }
   }
 }

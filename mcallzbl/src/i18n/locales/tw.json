@@ -23,7 +23,7 @@
     "highlights": "核心亮點",
     "projects": {
       "springlite": {
-        "description": "一個輕量級的 Spring 框架實現，用於深入理解 IoC 和 AOP 的核心原理。該專案展示了對 Spring 架構和設計模式的深刻理解。",
+        "description": "一個用於探索 Spring 核心原理（如 IoC、AOP）的學習型專案，非可供生產使用的框架實作，著重於理解架構與設計模式。",
         "highlights": {
           "0": "實現了核心 IoC 容器及 Bean 生命週期管理",
           "1": "使用動態代理建構 AOP 功能",
@@ -52,5 +52,25 @@
   "punctuation": {
     "quoteStart": "“",
     "quoteEnd": "”"
+  },
+  "home": {
+    "title": "歡迎來到我的作品集",
+    "subtitle": "全端開發工程師 | 後端專家 | 軟體工程師",
+    "scrollDown": "向下捲動",
+    "getStarted": "開始探索",
+    "features": {
+      "fast": {
+        "title": "快速高效",
+        "description": "採用現代技術與最佳實踐優化效能。"
+      },
+      "modern": {
+        "title": "現代技術堆疊",
+        "description": "使用前沿框架與工具建構，具備良好的可擴展性。"
+      },
+      "beautiful": {
+        "title": "簡潔設計",
+        "description": "優雅的響應式設計，於各裝置上皆能流暢運作。"
+      }
+    }
   }
 }

@@ -23,9 +23,6 @@ const backgroundEffect = ref<'particles' | 'code' | 'formulas' | 'hello-world'>(
 
 // 滚动到作品集
 const portfolioSection = ref<HTMLElement | null>(null)
-const scrollToPortfolio = () => {
-  portfolioSection.value?.scrollIntoView({ behavior: 'smooth' })
-}
 
 // 设置页面 SEO
 usePageSEO()
@@ -56,7 +53,14 @@ onMounted(() => {
           <HeroSection />
 
           <!-- Scroll Indicator -->
-          <div class="scroll-indicator" @click="scrollToPortfolio">
+          <div
+            class="scroll-indicator"
+            v-scroll-to="{
+              el: '.portfolio-section',
+              duration: 800,
+              easing: 'ease-in-out',
+            }"
+          >
             <span class="scroll-text">{{ $t('home.scrollDown') }}</span>
             <div class="scroll-arrow">↓</div>
           </div>
@@ -82,7 +86,7 @@ onMounted(() => {
   min-height: 100vh;
   font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Fira Code', monospace;
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
   background: transparent;
   color: #e4e4e7;
   opacity: 0;

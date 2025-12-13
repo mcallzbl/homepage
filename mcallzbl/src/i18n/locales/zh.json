@@ -43,7 +43,7 @@
     "highlights": "核心亮点",
     "projects": {
       "springlite": {
-        "description": "一个轻量级的Spring框架实现，用于深入理解IoC和AOP的核心原理。该项目展示了对Spring架构和设计模式的深刻理解。",
+        "description": "一个用于探索 Spring 核心原理（如 IoC、AOP）的学习型项目，并非可用于生产的框架实现，重点在于理解架构与设计模式。",
         "highlights": {
           "0": "实现了核心IoC容器及Bean生命周期管理",
           "1": "使用动态代理构建AOP功能",

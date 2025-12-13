@@ -23,7 +23,7 @@
     "highlights": "Kernpunkte",
     "projects": {
       "springlite": {
-        "description": "Eine leichtgewichtige Spring-Framework-Implementierung, entwickelt, um die Kernprinzipien von IoC und AOP zu verstehen. Dieses Projekt demonstriert tiefgreifendes Wissen über die Architektur und Entwurfsmuster von Spring.",
+        "description": "Ein exploratives Projekt zum Verständnis der Kernprinzipien von Spring (IoC, AOP). Kein produktionsreifes Framework, sondern ein Lernprojekt mit Fokus auf Architektur und Entwurfsmuster.",
         "highlights": {
           "0": "Implementierung des zentralen IoC-Containers mit Bean-Lebenszyklus-Management",
           "1": "AOP-Funktionalität mit dynamischen Proxies erstellt",
@@ -52,5 +52,25 @@
   "punctuation": {
     "quoteStart": "\"",
     "quoteEnd": "\""
+  },
+  "home": {
+    "title": "Willkommen in meinem Portfolio",
+    "subtitle": "Full-Stack-Entwickler | Backend-Spezialist | Softwareingenieur",
+    "scrollDown": "Nach unten scrollen",
+    "getStarted": "Jetzt starten",
+    "features": {
+      "fast": {
+        "title": "Schnell und effizient",
+        "description": "Optimierte Leistung mit modernen Technologien und Best Practices."
+      },
+      "modern": {
+        "title": "Moderner Tech-Stack",
+        "description": "Auf Basis modernster Frameworks und Tools für Skalierbarkeit entwickelt."
+      },
+      "beautiful": {
+        "title": "Klares Design",
+        "description": "Elegantes, responsives Design, das auf allen Geräten nahtlos funktioniert."
+      }
+    }
   }
 }

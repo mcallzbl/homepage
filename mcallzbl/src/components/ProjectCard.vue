@@ -40,7 +40,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue'
 
 export interface Project {
   name: string
