@@ -45,8 +45,23 @@ const yearText = currentYear <= START_YEAR ? String(START_YEAR) : `${START_YEAR}
 
 <style scoped>
 .site-footer {
-  border-top: 1px solid var(--color-border);
-  background: var(--color-background-mute);
+  position: relative;
+  border-top: 1px solid rgba(34, 197, 94, 0.25);
+  background: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.25);
+  color: #e6edf3; /* 明亮字体颜色，避免过暗 */
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #22c55e, #3b82f6);
+  opacity: 0.8;
 }
 
 .container {
@@ -59,18 +74,18 @@ const yearText = currentYear <= START_YEAR ? String(START_YEAR) : `${START_YEAR}
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
+  padding: 1.1rem 0;
   gap: 1rem;
 }
 
 .footer-left {
-  color: var(--color-text);
+  color: inherit;
   opacity: 0.8;
   font-size: 0.95rem;
 }
 
 .owner-link {
-  color: var(--color-text);
+  color: inherit;
   text-decoration: none;
 }
 
@@ -85,7 +100,7 @@ const yearText = currentYear <= START_YEAR ? String(START_YEAR) : `${START_YEAR}
 }
 
 .footer-link {
-  color: var(--color-text);
+  color: inherit;
   text-decoration: none;
   opacity: 0.8;
 }
@@ -102,5 +117,18 @@ const yearText = currentYear <= START_YEAR ? String(START_YEAR) : `${START_YEAR}
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+/* Light mode adjustments */
+:global(.app.light-mode) .site-footer {
+  background: rgba(255, 255, 255, 0.92);
+  border-top-color: rgba(0, 0, 0, 0.06);
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.08);
+  color: #1f2937; /* 浅色模式下的深色字体 */
+}
+
+:global(.app.light-mode) .site-footer::before {
+  background: linear-gradient(90deg, #3b82f6, #22c55e);
+  opacity: 0.6;
 }
 </style>
