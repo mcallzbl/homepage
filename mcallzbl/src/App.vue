@@ -37,9 +37,9 @@ onMounted(() => {
   setTimeout(() => {
     isVisible.value = true
   }, 100)
-  // 在空闲或下一帧之后再挂载背景特效（桌面端）；移动端或减少动态效果用户不启用
+  // 在空闲或下一帧之后再挂载背景特效；移动端或减少动态效果不启用
   const prefersReduced = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
+  const isMobile = typeof window !== 'undefined' && (window.innerWidth <= 768 || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches))
   if (!(prefersReduced || isMobile)) {
     const enable = () => { showBackground.value = true }
     type RequestIdleCallbackFn = (cb: () => void, opts?: { timeout?: number }) => number

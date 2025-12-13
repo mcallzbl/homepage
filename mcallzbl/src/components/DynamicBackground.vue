@@ -24,6 +24,8 @@ const canvasRef = ref<HTMLCanvasElement | null>(null)
 let animationId: number | null = null
 let ctx: CanvasRenderingContext2D | null = null
 let lastTime = 0
+let usingWorker = false
+let workerRef: Worker | null = null
 
 // 根据设备情况调整密度，降低移动端压力，尊重用户的「减少动态效果」偏好
 const densityFactor = ref(1)
@@ -592,8 +594,32 @@ const setupCanvas = () => {
 
   ctx.scale(window.devicePixelRatio, window.devicePixelRatio)
 
-  // 根据 effect 类型创建对应的特效
+  // Worker 优先，其次主线程回退
   densityFactor.value = computeDensityFactor()
+  const supportsOffscreen = 'transferControlToOffscreen' in canvas && typeof Worker !== 'undefined'
+  if (supportsOffscreen) {
+    try {
+      type OffscreenCapable = HTMLCanvasElement & { transferControlToOffscreen: () => OffscreenCanvas }
+      const off = (canvas as OffscreenCapable).transferControlToOffscreen()
+      workerRef = new Worker(new URL('@/workers/bgWorker.ts', import.meta.url), { type: 'module' })
+      const dpr = window.devicePixelRatio || 1
+      workerRef.postMessage({
+        type: 'init',
+        canvas: off,
+        color: props.color,
+        density: props.density,
+        densityFactor: densityFactor.value,
+        effect: props.effect,
+        devicePixelRatio: dpr,
+        size: { width: canvas.clientWidth || window.innerWidth, height: canvas.clientHeight || window.innerHeight }
+      }, [off as unknown as Transferable])
+      usingWorker = true
+      return
+    } catch {
+      // fall through to main-thread rendering
+    }
+  }
+  // 主线程回退（旧实现）
   switch (props.effect) {
     case 'particles':
       effectInstance = new ParticleNetwork(canvas, ctx)
@@ -623,6 +649,16 @@ const animate = (now?: number) => {
 }
 
 const handleResize = () => {
+  const canvas = canvasRef.value
+  if (usingWorker && workerRef && canvas) {
+    const dpr2 = window.devicePixelRatio || 1
+    workerRef.postMessage({
+      type: 'resize',
+      size: { width: canvas.clientWidth || window.innerWidth, height: canvas.clientHeight || window.innerHeight },
+      devicePixelRatio: dpr2
+    })
+    return
+  }
   setupCanvas()
   if (effectInstance && 'resize' in effectInstance) {
     effectInstance.resize()
@@ -631,13 +667,20 @@ const handleResize = () => {
 
 onMounted(() => {
   setupCanvas()
-  animate()
+  if (!usingWorker) {
+    animate()
+  }
   window.addEventListener('resize', handleResize)
 })
 
 onUnmounted(() => {
   if (animationId) {
     cancelAnimationFrame(animationId)
+  }
+  if (workerRef) {
+    workerRef.postMessage({ type: 'dispose' })
+    workerRef.terminate()
+    workerRef = null
   }
   window.removeEventListener('resize', handleResize)
 })
