@@ -60,6 +60,17 @@
           "2": "線上地址：https://mcallzbl.github.io/config-formatter/",
           "3": "功能與穩健性有限，建議僅用於 Properties <-> YAML"
         }
+      },
+      "grubtheme": {
+        "description": "用於管理 GRUB 開機管理器主題的 Python 工具，並同時提供命令列與圖形介面。內建主題播放清單與隨機輪播，可從檔案/目錄/URL 安裝主題，並可搭配 systemd 於開機時自動切換。目前已在 Arch Linux 驗證。",
+        "highlights": {
+          "0": "播放清單：支援依序/隨機輪播",
+          "1": "隨機切換：可於開機或手動觸發",
+          "2": "多來源安裝：本機檔案/目錄、遠端 URL",
+          "3": "雙形態：CLI 與 GUI",
+          "4": "systemd 服務：開機自動套用主題",
+          "5": "平台：已在 Arch Linux 驗證"
+        }
       }
     }
   },

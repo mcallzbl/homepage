@@ -96,6 +96,28 @@ const projects = computed<Project[]>(() => [
       t('portfolio.projects.configformatter.highlights.2'),
       t('portfolio.projects.configformatter.highlights.3')
     ]
+  },
+  {
+    name: 'grub-theme',
+    description: t('portfolio.projects.grubtheme.description'),
+    githubUrl: 'https://github.com/mcallzbl/grub-theme',
+    tags: [
+      'Python',
+      'GRUB',
+      'Theme Management',
+      'CLI',
+      'GUI',
+      'systemd',
+      'Arch Linux'
+    ],
+    highlights: [
+      t('portfolio.projects.grubtheme.highlights.0'),
+      t('portfolio.projects.grubtheme.highlights.1'),
+      t('portfolio.projects.grubtheme.highlights.2'),
+      t('portfolio.projects.grubtheme.highlights.3'),
+      t('portfolio.projects.grubtheme.highlights.4'),
+      t('portfolio.projects.grubtheme.highlights.5')
+    ]
   }
 ])
 </script>

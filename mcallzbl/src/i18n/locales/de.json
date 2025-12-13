@@ -60,6 +60,17 @@
           "2": "Online‑Tool: https://mcallzbl.github.io/config-formatter/",
           "3": "Begrenzte Funktionen; vorwiegend für Properties <-> YAML empfohlen"
         }
+      },
+      "grubtheme": {
+        "description": "Python‑Tool zur Verwaltung von GRUB‑Bootloader‑Themes, mit Kommandozeilen‑ und grafischer Oberfläche. Enthält Theme‑Playlists und zufällige Rotation, Installation aus Datei/Verzeichnis/URL sowie systemd‑Integration zum automatischen Wechsel beim Systemstart. Derzeit auf Arch Linux verifiziert.",
+        "highlights": {
+          "0": "Playlists: sequentielle oder zufällige Rotation",
+          "1": "Zufälliger Wechsel: beim Booten oder auf Abruf",
+          "2": "Mehrquellen‑Install: lokale Datei/Verzeichnis, entfernte URL",
+          "3": "Zwei Modi: CLI und GUI",
+          "4": "systemd‑Dienst: Theme beim Start anwenden",
+          "5": "Plattform: auf Arch Linux verifiziert"
+        }
       }
     }
   },

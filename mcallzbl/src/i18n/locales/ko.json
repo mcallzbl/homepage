@@ -60,6 +60,17 @@
           "2": "온라인 도구: https://mcallzbl.github.io/config-formatter/",
           "3": "기능 제한적; 주로 Properties <-> YAML 권장"
         }
+      },
+      "grubtheme": {
+        "description": "GRUB 부트로더 테마를 관리하는 Python 도구로, 명령행과 GUI를 모두 제공합니다. 테마 플레이리스트와 랜덤 순환, 파일/디렉터리/URL에서의 설치를 지원하며, systemd와 연동해 부팅 시 자동 전환할 수 있습니다. 현재 Arch Linux에서 검증되었습니다.",
+        "highlights": {
+          "0": "플레이리스트: 순차/랜덤 순환 지원",
+          "1": "랜덤 전환: 부팅 시 또는 수동 트리거",
+          "2": "다중 소스 설치: 로컬 파일/디렉터리, 원격 URL",
+          "3": "두 가지 모드: CLI와 GUI",
+          "4": "systemd 서비스: 부팅 시 테마 적용",
+          "5": "플랫폼: Arch Linux에서 검증"
+        }
       }
     }
   },

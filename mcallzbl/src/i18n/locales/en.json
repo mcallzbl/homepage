@@ -80,6 +80,17 @@
           "2": "Online tool: https://mcallzbl.github.io/config-formatter/",
           "3": "Limited features; recommended mainly for Properties <-> YAML"
         }
+      },
+      "grubtheme": {
+        "description": "A Python tool for managing GRUB bootloader themes, with both command-line and graphical interfaces. Includes theme playlists and random rotation, installs from file/directory/URL, and integrates with systemd to auto-switch at startup. Currently verified on Arch Linux.",
+        "highlights": {
+          "0": "Playlists: sequential or random rotation",
+          "1": "Random switching: at boot or on-demand",
+          "2": "Multi-source install: local file/directory, remote URL",
+          "3": "Two modes: CLI and GUI",
+          "4": "systemd service: apply theme at startup",
+          "5": "Platform: verified on Arch Linux"
+        }
       }
     }
   },

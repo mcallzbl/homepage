@@ -60,6 +60,17 @@
           "2": "Herramienta en línea: https://mcallzbl.github.io/config-formatter/",
           "3": "Funciones limitadas; recomendado sobre todo para Properties <-> YAML"
         }
+      },
+      "grubtheme": {
+        "description": "Una herramienta en Python para gestionar los temas del cargador de arranque GRUB, con interfaces tanto de línea de comandos como gráfica. Incluye listas de reproducción de temas y rotación aleatoria, instala desde archivo/directorio/URL e integra con systemd para cambiar automáticamente al inicio. Actualmente verificado en Arch Linux.",
+        "highlights": {
+          "0": "Listas de reproducción: rotación secuencial o aleatoria",
+          "1": "Cambio aleatorio: al inicio o bajo demanda",
+          "2": "Instalación multiorigen: archivo/directorio local, URL remota",
+          "3": "Dos modos: CLI y GUI",
+          "4": "Servicio systemd: aplicar tema al inicio",
+          "5": "Plataforma: verificado en Arch Linux"
+        }
       }
     }
   },

@@ -60,6 +60,17 @@
           "2": "Outil en ligne : https://mcallzbl.github.io/config-formatter/",
           "3": "Fonctionnalités limitées ; recommandé principalement pour Properties <-> YAML"
         }
+      },
+      "grubtheme": {
+        "description": "Un outil Python pour gérer les thèmes du chargeur de démarrage GRUB, avec interface en ligne de commande et interface graphique. Inclut des playlists de thèmes et une rotation aléatoire, l’installation depuis fichier/dossier/URL, et une intégration systemd pour basculer automatiquement au démarrage. Actuellement vérifié sur Arch Linux.",
+        "highlights": {
+          "0": "Playlists : rotation séquentielle ou aléatoire",
+          "1": "Basculement aléatoire : au démarrage ou à la demande",
+          "2": "Sources multiples : fichier/dossier local, URL distante",
+          "3": "Deux modes : CLI et GUI",
+          "4": "Service systemd : appliquer le thème au démarrage",
+          "5": "Plateforme : vérifié sur Arch Linux"
+        }
       }
     }
   },
