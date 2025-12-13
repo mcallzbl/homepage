@@ -77,14 +77,14 @@ const selectLanguage = (lang: string) => {
     locale.value = lang
 
     // 更新URL参数（可选）
-    if (props.updateUrl && (import.meta.env.DEV || window.history.pushState)) {
+    if (props.updateUrl && (import.meta.env.DEV || window.history.replaceState)) {
       const url = new URL(window.location.href)
       if (lang === 'en') {
         url.searchParams.delete('lang')
       } else {
         url.searchParams.set('lang', lang)
       }
-      window.history.pushState({}, '', url.toString())
+      window.history.replaceState({}, '', url.toString())
     }
 
     // 触发语言变更事件
