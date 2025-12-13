@@ -9,7 +9,7 @@
     <!-- Language Dropdown List -->
     <div v-if="isOpen" class="language-dropdown" :class="{ 'dropdown-open': isOpen }" :style="dropdownStyle">
       <div
-        v-for="lang in languages"
+        v-for="lang in sortedLanguages"
         :key="lang"
         @click.stop="selectLanguage(lang)"
         @keydown.enter="selectLanguage(lang)"
@@ -38,10 +38,13 @@ interface Props {
   languages?: readonly string[]
   languageNames?: Record<string, string>
   updateUrl?: boolean
+  // 语言排序方式：native(按本地名称字母序)、code(按语言代码)、none(保持原顺序)
+  sortBy?: 'native' | 'code' | 'none'
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  updateUrl: true
+  updateUrl: true,
+  sortBy: 'native'
 })
 
 // 定义Emits
@@ -56,6 +59,20 @@ const { locale } = useI18n()
 // 使用Props中的配置，如果没有则使用默认值
 const languages = computed(() => props.languages || SUPPORTED_LANGUAGES)
 const languageNames = computed(() => props.languageNames || LANGUAGE_NAMES)
+
+// 公正排序：默认按各语言的本地显示名排序
+const sortedLanguages = computed(() => {
+  const list = [...languages.value]
+  if (props.sortBy === 'none') return list
+  if (props.sortBy === 'code') return list.sort((a, b) => String(a).localeCompare(String(b)))
+  // native
+  return list.sort((a, b) => {
+    const names = languageNames.value as Record<string, string>
+    const an = names[a] || String(a)
+    const bn = names[b] || String(b)
+    return an.localeCompare(bn, undefined, { sensitivity: 'base', numeric: true })
+  })
+})
 
 // 状态管理
 const isOpen = ref(false)
