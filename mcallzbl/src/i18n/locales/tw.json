@@ -57,12 +57,12 @@
         }
       },
       "configformatter": {
-        "description": "線上配置檔格式轉換工具。功能與穩健性目前較弱，建議主要用於 Spring Boot 情境下的 Properties <-> YAML 互轉。",
+        "description": "線上配置檔格式轉換工具。功能與穩健性目前較弱，建議主要用於 Spring Boot 情境下的 Properties ↔ YAML 互轉。",
         "highlights": {
           "0": "支援 Properties 與 YAML 互相轉換",
           "1": "面向 Spring Boot 的配置轉換情境",
           "2": "線上地址：https://mcallzbl.github.io/config-formatter/",
-          "3": "功能與穩健性有限，建議僅用於 Properties <-> YAML"
+          "3": "功能與穩健性有限，建議僅用於 Properties ↔ YAML"
         }
       },
       "grubtheme": {

@@ -65,15 +65,6 @@ const getOrigin = (url: string) => {
 }
 
 const getPrimaryFavicon = (url: string) => `${getOrigin(url)}/favicon.ico`
-const getFaviconCandidates = (url: string) => {
-  const origin = getOrigin(url)
-  return [
-    `${origin}/favicon.ico`,
-    `${origin}/favicon.svg`,
-    `${origin}/apple-touch-icon.png`,
-    `${origin}/apple-touch-icon-precomposed.png`
-  ]
-}
 
 const letterPalette = ['#22c55e', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6', '#14b8a6']
 const stringHash = (s: string) => Array.from(s).reduce((acc, c) => (acc + c.charCodeAt(0)) | 0, 0)
@@ -96,15 +87,17 @@ const loadImage = (src: string) =>
     img.src = src
   })
 
+// 保证每个 URL 只尝试一次，避免重复 404
+const attempted = new Set<string>()
+
 const prefetchFavicon = async (item: FriendItem) => {
   const url = item.url
-  const candidates = getFaviconCandidates(url)
-  for (const src of candidates) {
-    const ok = await loadImage(src)
-    if (ok) {
-      iconSrc[url] = src
-      return
-    }
+  if (attempted.has(url)) return
+  attempted.add(url)
+  const primary = getPrimaryFavicon(url)
+  const ok = await loadImage(primary)
+  if (ok) {
+    iconSrc[url] = primary
   }
 }
 

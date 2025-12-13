@@ -57,12 +57,12 @@
         }
       },
       "configformatter": {
-        "description": "Conversor on-line de formatos de arquivos de configuração. Por ora, funcionalidades e robustez são limitadas; recomendado principalmente para conversões Properties <-> YAML usadas no Spring Boot.",
+        "description": "Conversor on-line de formatos de arquivos de configuração. Por ora, funcionalidades e robustez são limitadas; recomendado principalmente para conversões Properties ↔ YAML usadas no Spring Boot.",
         "highlights": {
           "0": "Converter entre Properties e YAML",
           "1": "Focado em cenários de configuração do Spring Boot",
           "2": "Ferramenta on-line: https://mcallzbl.github.io/config-formatter/",
-          "3": "Recursos limitados; recomendado sobretudo para Properties <-> YAML"
+          "3": "Recursos limitados; recomendado sobretudo para Properties ↔ YAML"
         }
       },
       "grubtheme": {

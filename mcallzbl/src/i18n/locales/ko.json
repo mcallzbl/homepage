@@ -57,12 +57,12 @@
         }
       },
       "configformatter": {
-        "description": "구성 파일 형식을 변환하는 온라인 도구입니다. 현재 기능/안정성이 제한적이므로 Spring Boot에서 자주 쓰이는 Properties <-> YAML 변환에 주로 권장됩니다.",
+        "description": "구성 파일 형식을 변환하는 온라인 도구입니다. 현재 기능/안정성이 제한적이므로 Spring Boot에서 자주 쓰이는 Properties ↔ YAML 변환에 주로 권장됩니다.",
         "highlights": {
           "0": "Properties 와 YAML 간 변환",
           "1": "Spring Boot 구성 시나리오에 초점",
           "2": "온라인 도구: https://mcallzbl.github.io/config-formatter/",
-          "3": "기능 제한적; 주로 Properties <-> YAML 권장"
+          "3": "기능 제한적; 주로 Properties ↔ YAML 권장"
         }
       },
       "grubtheme": {

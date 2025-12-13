@@ -57,12 +57,12 @@
         }
       },
       "configformatter": {
-        "description": "設定ファイルの形式を変換するオンラインツール。現時点では機能・堅牢性は限定的で、主に Spring Boot で用いられる Properties <-> YAML の相互変換に推奨します。",
+        "description": "設定ファイルの形式を変換するオンラインツール。現時点では機能・堅牢性は限定的で、主に Spring Boot で用いられる Properties ↔ YAML の相互変換に推奨します。",
         "highlights": {
           "0": "Properties と YAML の相互変換",
           "1": "Spring Boot の設定シナリオにフォーカス",
           "2": "オンライン: https://mcallzbl.github.io/config-formatter/",
-          "3": "機能は限定的：主に Properties <-> YAML を推奨"
+          "3": "機能は限定的：主に Properties ↔ YAML を推奨"
         }
       },
       "grubtheme": {

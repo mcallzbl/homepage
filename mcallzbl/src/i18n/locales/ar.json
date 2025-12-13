@@ -77,12 +77,12 @@
         }
       },
       "configformatter": {
-        "description": "أداة عبر الإنترنت لتحويل صيغ ملفات الإعدادات. الإمكانات والمتانة محدودة حاليًا؛ يُنصح بها أساسًا لتحويل Properties <-> YAML المستخدمة مع Spring Boot.",
+        "description": "أداة عبر الإنترنت لتحويل صيغ ملفات الإعدادات. الإمكانات والمتانة محدودة حاليًا؛ يُنصح بها أساسًا لتحويل Properties ↔ YAML المستخدمة مع Spring Boot.",
         "highlights": {
           "0": "التحويل بين Properties و YAML",
           "1": "متمركزة حول سيناريوهات إعدادات Spring Boot",
           "2": "الأداة على الإنترنت: https://mcallzbl.github.io/config-formatter/",
-          "3": "ميزات محدودة؛ يُنصح بها خصوصًا لـ Properties <-> YAML"
+          "3": "ميزات محدودة؛ يُنصح بها خصوصًا لـ Properties ↔ YAML"
         }
       },
       "grubtheme": {
