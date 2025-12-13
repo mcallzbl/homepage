@@ -68,6 +68,7 @@ const yearText = currentYear <= START_YEAR ? String(START_YEAR) : `${START_YEAR}
   max-width: 1000px;
   margin: 0 auto;
   width: 100%;
+  padding: 0 1rem; /* 防止贴边 */
 }
 
 .footer-inner {
@@ -97,6 +98,7 @@ const yearText = currentYear <= START_YEAR ? String(START_YEAR) : `${START_YEAR}
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-wrap: wrap; /* 小屏允许换行 */
 }
 
 .footer-link {
@@ -115,8 +117,13 @@ const yearText = currentYear <= START_YEAR ? String(START_YEAR) : `${START_YEAR}
 @media (max-width: 640px) {
   .footer-inner {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center; /* 居中对齐 */
+    text-align: center;
+    padding: 1rem 1rem; /* 增加内边距 */
   }
+
+  .footer-left { width: 100%; text-align: center; }
+  .footer-right { justify-content: center; gap: 0.35rem 0.6rem; }
 }
 
 /* Light mode adjustments */
