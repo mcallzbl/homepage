@@ -114,5 +114,9 @@
         "description": "Elegantes, responsives Design, das auf allen Geräten nahtlos funktioniert."
       }
     }
+  },
+  "friends": {
+    "title": "Freundeslinks",
+    "empty": "Noch keine Freundeslinks"
   }
 }

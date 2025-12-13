@@ -118,5 +118,9 @@
         "description": "Design elegante e responsivo que funciona perfeitamente em todos os dispositivos."
       }
     }
+  },
+  "friends": {
+    "title": "Links amigos",
+    "empty": "Ainda não há links amigos"
   }
 }

@@ -99,6 +99,10 @@
     "quoteStart": "“",
     "quoteEnd": "”"
   },
+  "friends": {
+    "title": "友情連結",
+    "empty": "暫無友情連結"
+  },
   "home": {
     "title": "歡迎來到我的作品集",
     "subtitle": "全端開發工程師 | 後端專家 | 軟體工程師",

@@ -8,6 +8,7 @@ import HeroSection from '@/components/HeroSection.vue'
 import PortfolioView from '@/views/PortfolioView.vue'
 import DynamicBackground from '@/components/DynamicBackground.vue'
 import GithubCorner from '@/components/GithubCorner.vue'
+import FriendLinks from '@/components/FriendLinks.vue'
 
 const { locale } = useI18n()
 
@@ -34,6 +35,12 @@ onMounted(() => {
     isVisible.value = true
   }, 100)
 })
+
+// Friend links configured at app level
+interface FriendItem { title: string; url: string }
+const friendItems: FriendItem[] = [
+  { title: 'Jimmy的小屋', url: 'https://blog.jimmypowell.dev' }
+]
 </script>
 
 <template>
@@ -74,7 +81,15 @@ onMounted(() => {
 
     <!-- Portfolio Section -->
     <section class="portfolio-section section" ref="portfolioSection">
-      <PortfolioView />
+      <div class="container">
+        <PortfolioView />
+
+        <!-- Friend Links Section -->
+        <div class="friends-section">
+          <h3 class="friends-title">{{ $t('friends.title') }}</h3>
+          <FriendLinks :items="friendItems" />
+        </div>
+      </div>
     </section>
   </div>
 </template>
@@ -113,6 +128,18 @@ onMounted(() => {
 
 .portfolio-section {
   padding: 4rem 2rem;
+}
+
+.friends-section {
+  max-width: 1200px;
+  margin: 3rem auto 0 auto;
+}
+
+.friends-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin: 0 0 1rem 0;
 }
 
 /* Scroll Indicator */

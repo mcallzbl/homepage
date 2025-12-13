@@ -98,6 +98,10 @@
       }
     }
   },
+  "friends": {
+    "title": "友情链接",
+    "empty": "暂无友情链接"
+  },
   "profile": {
     "greeting": "你好，我是",
     "name": "mcallzbl",

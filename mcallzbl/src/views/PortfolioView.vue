@@ -163,6 +163,8 @@ const projects = computed<Project[]>(() => [
   gap: 2rem;
 }
 
+/* Friend links moved to App.vue */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

@@ -118,5 +118,9 @@
   "punctuation": {
     "quoteStart": "«",
     "quoteEnd": "»"
+  },
+  "friends": {
+    "title": "روابط الأصدقاء",
+    "empty": "لا توجد روابط أصدقاء بعد"
   }
 }

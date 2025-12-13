@@ -118,5 +118,9 @@
         "description": "Un design élégant et réactif qui fonctionne parfaitement sur tous les appareils."
       }
     }
+  },
+  "friends": {
+    "title": "Liens amis",
+    "empty": "Aucun lien ami pour le moment"
   }
 }

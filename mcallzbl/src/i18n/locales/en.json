@@ -98,6 +98,10 @@
       }
     }
   },
+  "friends": {
+    "title": "Friend Links",
+    "empty": "No friend links yet"
+  },
   "profile": {
     "greeting": "Hi, I'm",
     "name": "mcallzbl",
