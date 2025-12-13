@@ -16,6 +16,22 @@
     "error": "エラーが発生しました",
     "success": "操作が成功しました"
   },
+  "portfolio": {
+    "title": "私のプロジェクト",
+    "subtitle": "これらのプロジェクトを通して、私の技術的な歩みをご覧ください",
+    "viewOnGithub": "GitHubで見る",
+    "highlights": "主なハイライト",
+    "projects": {
+      "springlite": {
+        "description": "IoCとAOPの基本原則を理解するために構築された軽量のSpringフレームワーク実装。このプロジェクトは、Springのアーキテクチャと設計パターンに関する深い知識を示しています。",
+        "highlights": {
+          "0": "Beanのライフサイクル管理を備えたコアIoCコンテナを実装",
+          "1": "動的プロキシを使用してAOP機能を構築",
+          "2": "Springフレームワークの内部構造を理解"
+        }
+      }
+    }
+  },
   "profile": {
     "greeting": "こんにちは、私は",
     "name": "mcallzbl",

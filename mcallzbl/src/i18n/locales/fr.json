@@ -16,6 +16,22 @@
     "error": "Une erreur est survenue",
     "success": "Opération réussie"
   },
+  "portfolio": {
+    "title": "Mes Projets",
+    "subtitle": "Découvrez mon parcours technique à travers ces projets",
+    "viewOnGithub": "Voir sur GitHub",
+    "highlights": "Points Clés",
+    "projects": {
+      "springlite": {
+        "description": "Une implémentation légère du framework Spring conçue pour comprendre les principes fondamentaux d'IoC et d'AOP. Ce projet démontre une connaissance approfondie de l'architecture et des patrons de conception de Spring.",
+        "highlights": {
+          "0": "Implémentation du conteneur IoC principal avec gestion du cycle de vie des beans",
+          "1": "Fonctionnalité AOP construite à l'aide de proxys dynamiques",
+          "2": "Compréhension acquise des mécanismes internes du framework Spring"
+        }
+      }
+    }
+  },
   "profile": {
     "greeting": "Bonjour, je suis",
     "name": "mcallzbl",

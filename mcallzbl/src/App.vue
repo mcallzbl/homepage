@@ -5,6 +5,7 @@ import { isRTLLanguage } from '@/config/languages'
 import { usePageSEO } from '@/composables/usePageSEO'
 import LanguageSelector from '@/components/LanguageSelector.vue'
 import HeroSection from '@/components/HeroSection.vue'
+import PortfolioView from '@/views/PortfolioView.vue'
 import DynamicBackground from '@/components/DynamicBackground.vue'
 
 const { locale } = useI18n()
@@ -19,6 +20,12 @@ const isVisible = ref(false)
 const effects: Array<'particles' | 'formulas' | 'hello-world'> = ['particles', 'formulas', 'hello-world']
 const randomEffect = effects[Math.floor(Math.random() * effects.length)] as 'particles' | 'formulas' | 'hello-world'
 const backgroundEffect = ref<'particles' | 'code' | 'formulas' | 'hello-world'>(randomEffect)
+
+// 滚动到作品集
+const portfolioSection = ref<HTMLElement | null>(null)
+const scrollToPortfolio = () => {
+  portfolioSection.value?.scrollIntoView({ behavior: 'smooth' })
+}
 
 // 设置页面 SEO
 usePageSEO()
@@ -42,12 +49,25 @@ onMounted(() => {
     <!-- Language Selector -->
     <LanguageSelector />
 
-    <!-- Main Content -->
-    <div class="container">
-      <div class="left-column">
-        <HeroSection />
+    <!-- Hero Section -->
+    <div class="hero-container section">
+      <div class="container">
+        <div class="left-column">
+          <HeroSection />
+
+          <!-- Scroll Indicator -->
+          <div class="scroll-indicator" @click="scrollToPortfolio">
+            <span class="scroll-text">{{ $t('home.scrollDown') }}</span>
+            <div class="scroll-arrow">↓</div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section section" ref="portfolioSection">
+      <PortfolioView />
+    </section>
   </div>
 </template>
 
@@ -68,6 +88,65 @@ onMounted(() => {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-container {
+  padding: 2rem 1.5rem;
+}
+
+.portfolio-section {
+  padding: 4rem 2rem;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  margin-top: 4rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.scroll-indicator:hover {
+  opacity: 1;
+  transform: translateY(5px);
+}
+
+.scroll-text {
+  font-size: 0.9rem;
+  color: #e6edf3;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.scroll-arrow {
+  font-size: 1.5rem;
+  color: #22c55e;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }
 
 /* Dark Mode (Hacker/GitHub style) */
@@ -113,6 +192,10 @@ onMounted(() => {
   animation: none !important;
 }
 
+.app.light-mode .scroll-text {
+  color: #1f2937;
+}
+
 @keyframes matrix-rain {
   0% { background-position: 0 0, 0 0, 0 0; }
   100% { background-position: 50px 0, 0 0, 0 0; }
@@ -137,13 +220,7 @@ onMounted(() => {
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
-  position: relative;
-  z-index: 1;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
 }
 
 /* RTL Support */
@@ -172,8 +249,13 @@ onMounted(() => {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .container {
-    padding: 1rem;
+  .hero-container,
+  .portfolio-section {
+    padding: 2rem 1rem;
+  }
+
+  .scroll-indicator {
+    margin-top: 2rem;
   }
 }
 </style>

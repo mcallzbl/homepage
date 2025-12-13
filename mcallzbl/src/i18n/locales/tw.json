@@ -16,6 +16,22 @@
     "error": "發生錯誤",
     "success": "操作成功"
   },
+  "portfolio": {
+    "title": "我的專案",
+    "subtitle": "透過這些專案探索我的技術之旅",
+    "viewOnGithub": "在 GitHub 上查看",
+    "highlights": "核心亮點",
+    "projects": {
+      "springlite": {
+        "description": "一個輕量級的 Spring 框架實現，用於深入理解 IoC 和 AOP 的核心原理。該專案展示了對 Spring 架構和設計模式的深刻理解。",
+        "highlights": {
+          "0": "實現了核心 IoC 容器及 Bean 生命週期管理",
+          "1": "使用動態代理建構 AOP 功能",
+          "2": "深入理解了 Spring 框架內部機制"
+        }
+      }
+    }
+  },
   "profile": {
     "greeting": "你好，我是",
     "name": "mcallzbl",

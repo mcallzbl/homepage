@@ -1,49 +1,63 @@
 <template>
   <div class="home">
-    <section class="hero">
+    <!-- Hero Section -->
+    <section class="hero section">
       <div class="hero-content">
         <h1 class="hero-title">{{ $t('home.title') }}</h1>
         <p class="hero-subtitle">{{ $t('home.subtitle') }}</p>
-        
+
         <div class="features-grid">
           <div class="feature-card">
             <div class="feature-icon">🚀</div>
             <h3>{{ $t('home.features.fast.title') }}</h3>
             <p>{{ $t('home.features.fast.description') }}</p>
           </div>
-          
+
           <div class="feature-card">
             <div class="feature-icon">⚡</div>
             <h3>{{ $t('home.features.modern.title') }}</h3>
             <p>{{ $t('home.features.modern.description') }}</p>
           </div>
-          
+
           <div class="feature-card">
             <div class="feature-icon">🎨</div>
             <h3>{{ $t('home.features.beautiful.title') }}</h3>
             <p>{{ $t('home.features.beautiful.description') }}</p>
           </div>
         </div>
-        
-        <div class="cta-section">
-          <router-link to="/about" class="cta-button">
-            {{ $t('home.getStarted') }}
-          </router-link>
+
+        <div class="scroll-indicator" @click="scrollToPortfolio">
+          <span class="scroll-text">{{ $t('home.scrollDown') }}</span>
+          <div class="scroll-arrow">↓</div>
         </div>
       </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-wrapper section" ref="portfolioSection">
+      <PortfolioView />
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
+import { ref } from 'vue'
+import PortfolioView from './PortfolioView.vue'
 
-const { t } = useI18n()
+const portfolioSection = ref<HTMLElement | null>(null)
+
+const scrollToPortfolio = () => {
+  portfolioSection.value?.scrollIntoView({ behavior: 'smooth' })
+}
 </script>
 
 <style scoped>
 .home {
-  min-height: calc(100vh - 200px);
+  width: 100%;
+}
+
+.section {
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,11 +67,12 @@ const { t } = useI18n()
 .hero {
   max-width: 1200px;
   width: 100%;
-  text-align: center;
+  margin: 0 auto;
 }
 
 .hero-content {
   animation: fadeInUp 0.8s ease-out;
+  text-align: center;
 }
 
 .hero-title {
@@ -138,26 +153,38 @@ const { t } = useI18n()
   line-height: 1.6;
 }
 
-.cta-section {
-  margin-top: 2rem;
-}
-
-.cta-button {
-  display: inline-block;
-  padding: 1rem 2rem;
-  background: linear-gradient(135deg, #42b883, #369870);
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1.1rem;
+.scroll-indicator {
+  margin-top: 4rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.7;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(66, 184, 131, 0.3);
 }
 
-.cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(66, 184, 131, 0.4);
+.scroll-indicator:hover {
+  opacity: 1;
+  transform: translateY(5px);
+}
+
+.scroll-text {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.scroll-arrow {
+  font-size: 1.5rem;
+  color: #42b883;
+  animation: bounce 2s infinite;
+}
+
+.portfolio-wrapper {
+  width: 100%;
+  background: var(--color-background-mute);
 }
 
 @keyframes fadeInUp {
@@ -171,22 +198,42 @@ const { t } = useI18n()
   }
 }
 
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
 @media (max-width: 768px) {
+  .section {
+    padding: 1.5rem 1rem;
+  }
+
   .hero-title {
     font-size: 2.5rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1.1rem;
   }
-  
+
   .features-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .feature-card {
     padding: 1.5rem;
+  }
+
+  .scroll-indicator {
+    margin-top: 2rem;
   }
 }
 </style>

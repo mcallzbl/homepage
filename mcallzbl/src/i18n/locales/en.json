@@ -16,6 +16,42 @@
     "error": "An error occurred",
     "success": "Operation successful"
   },
+  "home": {
+    "title": "Welcome to My Portfolio",
+    "subtitle": "Full-Stack Developer | Backend Specialist | Software Engineer",
+    "scrollDown": "Scroll Down",
+    "getStarted": "Get Started",
+    "features": {
+      "fast": {
+        "title": "Fast & Efficient",
+        "description": "Optimized performance with modern technologies and best practices."
+      },
+      "modern": {
+        "title": "Modern Tech Stack",
+        "description": "Built with cutting-edge frameworks and tools for scalability."
+      },
+      "beautiful": {
+        "title": "Clean Design",
+        "description": "Elegant, responsive design that works seamlessly across all devices."
+      }
+    }
+  },
+  "portfolio": {
+    "title": "My Projects",
+    "subtitle": "Explore my technical journey through these projects",
+    "viewOnGithub": "View on GitHub",
+    "highlights": "Key Highlights",
+    "projects": {
+      "springlite": {
+        "description": "A lightweight Spring framework implementation built to understand the core principles of IoC and AOP. This project demonstrates deep knowledge of Spring's architecture and design patterns.",
+        "highlights": {
+          "0": "Implemented core IoC container with bean lifecycle management",
+          "1": "Built AOP functionality using dynamic proxies",
+          "2": "Achieved understanding of Spring framework internals"
+        }
+      }
+    }
+  },
   "profile": {
     "greeting": "Hi, I'm",
     "name": "mcallzbl",

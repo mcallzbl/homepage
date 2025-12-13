@@ -16,6 +16,22 @@
     "error": "오류가 발생했습니다",
     "success": "작업이 성공적으로 완료되었습니다"
   },
+  "portfolio": {
+    "title": "내 프로젝트",
+    "subtitle": "이 프로젝트들을 통해 저의 기술적인 여정을 살펴보세요",
+    "viewOnGithub": "GitHub에서 보기",
+    "highlights": "주요 하이라이트",
+    "projects": {
+      "springlite": {
+        "description": "IoC와 AOP의 핵심 원리를 이해하기 위해 만들어진 경량 스프링 프레임워크 구현입니다. 이 프로젝트는 스프링 아키텍처와 디자인 패턴에 대한 깊은 지식을 보여줍니다.",
+        "highlights": {
+          "0": "빈 생명주기 관리를 포함한 핵심 IoC 컨테이너 구현",
+          "1": "동적 프록시를 이용한 AOP 기능 구축",
+          "2": "스프링 프레임워크 내부 구조에 대한 이해 달성"
+        }
+      }
+    }
+  },
   "profile": {
     "greeting": "안녕하세요, 저는",
     "name": "mcallzbl",

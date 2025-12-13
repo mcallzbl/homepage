@@ -16,6 +16,42 @@
     "error": "发生错误",
     "success": "操作成功"
   },
+  "home": {
+    "title": "欢迎来到我的作品集",
+    "subtitle": "全栈开发工程师 | 后端专家 | 软件工程师",
+    "scrollDown": "向下滚动",
+    "getStarted": "开始探索",
+    "features": {
+      "fast": {
+        "title": "快速高效",
+        "description": "采用现代技术和最佳实践优化性能。"
+      },
+      "modern": {
+        "title": "现代技术栈",
+        "description": "使用前沿框架和工具构建，具备良好的可扩展性。"
+      },
+      "beautiful": {
+        "title": "简洁设计",
+        "description": "优雅的响应式设计，在所有设备上无缝运行。"
+      }
+    }
+  },
+  "portfolio": {
+    "title": "我的项目",
+    "subtitle": "通过这些项目探索我的技术之旅",
+    "viewOnGithub": "在GitHub上查看",
+    "highlights": "核心亮点",
+    "projects": {
+      "springlite": {
+        "description": "一个轻量级的Spring框架实现，用于深入理解IoC和AOP的核心原理。该项目展示了对Spring架构和设计模式的深刻理解。",
+        "highlights": {
+          "0": "实现了核心IoC容器及Bean生命周期管理",
+          "1": "使用动态代理构建AOP功能",
+          "2": "深入理解了Spring框架内部机制"
+        }
+      }
+    }
+  },
   "profile": {
     "greeting": "你好，我是",
     "name": "mcallzbl",
