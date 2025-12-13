@@ -71,6 +71,15 @@
           "6": "Tech stack: Kotlin, Compose, MVVM, Hilt, Coroutines + Flow, Coil",
           "7": "Exports saved to Download/ApkList"
         }
+      },
+      "configformatter": {
+        "description": "Online configuration file format converter. Functionality and robustness are limited for now; recommended primarily for Properties <-> YAML conversions commonly used in Spring Boot.",
+        "highlights": {
+          "0": "Convert between Properties and YAML",
+          "1": "Focused on Spring Boot configuration scenarios",
+          "2": "Online tool: https://mcallzbl.github.io/config-formatter/",
+          "3": "Limited features; recommended mainly for Properties <-> YAML"
+        }
       }
     }
   },

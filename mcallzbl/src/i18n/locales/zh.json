@@ -71,6 +71,15 @@
           "6": "技术栈：Kotlin、Compose、MVVM、Hilt、Coroutines + Flow、Coil",
           "7": "导出文件默认保存至 Download/ApkList"
         }
+      },
+      "configformatter": {
+        "description": "在线配置文件格式转换工具。功能与健壮性目前较弱，建议主要用于 Spring Boot 场景下的 Properties <-> YAML 互转。",
+        "highlights": {
+          "0": "支持 Properties 与 YAML 互相转换",
+          "1": "面向 Spring Boot 配置转换场景",
+          "2": "在线地址：https://mcallzbl.github.io/config-formatter/",
+          "3": "功能与健壮性有限，建议仅用于 Properties <-> YAML"
+        }
       }
     }
   },

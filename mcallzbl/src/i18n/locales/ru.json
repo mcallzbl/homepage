@@ -51,6 +51,15 @@
           "6": "Техстек: Kotlin, Compose, MVVM, Hilt, Coroutines + Flow, Coil",
           "7": "Файлы сохраняются в Download/ApkList"
         }
+      },
+      "configformatter": {
+        "description": "Онлайн‑конвертер форматов конфигурационных файлов. Функциональность и надёжность пока ограничены; рекомендуется в основном для конвертации Properties <-> YAML в Spring Boot.",
+        "highlights": {
+          "0": "Конвертация между Properties и YAML",
+          "1": "Ориентирован на сценарии конфигурации Spring Boot",
+          "2": "Онлайн‑сервис: https://mcallzbl.github.io/config-formatter/",
+          "3": "Ограниченный функционал; рекомендуется в основном для Properties <-> YAML"
+        }
       }
     }
   },

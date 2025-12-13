@@ -76,6 +76,26 @@ const projects = computed<Project[]>(() => [
       t('portfolio.projects.apklist.highlights.1'),
       t('portfolio.projects.apklist.highlights.2')
     ]
+  },
+  {
+    name: 'config-formatter',
+    description: t('portfolio.projects.configformatter.description'),
+    githubUrl: 'https://github.com/mcallzbl/config-formatter',
+    tags: [
+      'Web',
+      'Converter',
+      'Config',
+      'Properties',
+      'YAML',
+      'Spring Boot',
+      'Online'
+    ],
+    highlights: [
+      t('portfolio.projects.configformatter.highlights.0'),
+      t('portfolio.projects.configformatter.highlights.1'),
+      t('portfolio.projects.configformatter.highlights.2'),
+      t('portfolio.projects.configformatter.highlights.3')
+    ]
   }
 ])
 </script>
