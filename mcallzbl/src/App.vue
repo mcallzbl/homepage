@@ -37,14 +37,18 @@ onMounted(() => {
   setTimeout(() => {
     isVisible.value = true
   }, 100)
-  // 在空闲或下一帧之后再挂载背景特效，降低对 LCP 的影响
-  const enable = () => { showBackground.value = true }
-  type RequestIdleCallbackFn = (cb: () => void, opts?: { timeout?: number }) => number
-  const ric = (window as Window & { requestIdleCallback?: RequestIdleCallbackFn }).requestIdleCallback
-  if (typeof ric === 'function') {
-    ric(enable, { timeout: 1000 })
-  } else {
-    requestAnimationFrame(() => requestAnimationFrame(enable))
+  // 在空闲或下一帧之后再挂载背景特效（桌面端）；移动端或减少动态效果用户不启用
+  const prefersReduced = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
+  if (!(prefersReduced || isMobile)) {
+    const enable = () => { showBackground.value = true }
+    type RequestIdleCallbackFn = (cb: () => void, opts?: { timeout?: number }) => number
+    const ric = (window as Window & { requestIdleCallback?: RequestIdleCallbackFn }).requestIdleCallback
+    if (typeof ric === 'function') {
+      ric(enable, { timeout: 1000 })
+    } else {
+      requestAnimationFrame(() => requestAnimationFrame(enable))
+    }
   }
 })
 
@@ -78,11 +82,7 @@ const friendItems: FriendItem[] = [
           <!-- Scroll Indicator -->
           <div
             class="scroll-indicator"
-            v-scroll-to="{
-              el: '.portfolio-section',
-              duration: 800,
-              easing: 'ease-in-out',
-            }"
+            @click="portfolioSection?.scrollIntoView({ behavior: 'smooth' })"
           >
             <span class="scroll-text">{{ $t('home.scrollDown') }}</span>
             <div class="scroll-arrow">↓</div>
@@ -309,5 +309,12 @@ const friendItems: FriendItem[] = [
   }
 
   /* placeholder to keep block structure; styles moved to component */
+}
+
+/* 移动端禁用暗色模式下的背景动画，减少滚动帧丢失 */
+@media (max-width: 768px) {
+  .app:not(.light-mode) .bg-pattern {
+    animation: none !important;
+  }
 }
 </style>

@@ -23,6 +23,21 @@ const props = withDefaults(defineProps<Props>(), {
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 let animationId: number | null = null
 let ctx: CanvasRenderingContext2D | null = null
+let lastTime = 0
+
+// 根据设备情况调整密度，降低移动端压力，尊重用户的「减少动态效果」偏好
+const densityFactor = ref(1)
+
+const computeDensityFactor = () => {
+  try {
+    const prefersReduced = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReduced) return 0
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
+    return isMobile ? 0.5 : 1
+  } catch {
+    return 1
+  }
+}
 
 // 粒子连线效果
 class ParticleNetwork {
@@ -34,7 +49,8 @@ class ParticleNetwork {
   constructor(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) {
     this.canvas = canvas
     this.ctx = ctx
-    this.particleCount = Math.floor((canvas.width * canvas.height) / 10000) * props.density
+    const df = densityFactor.value || 1
+    this.particleCount = Math.floor((canvas.width * canvas.height) / 10000) * props.density * df
     this.particles = []
     this.init()
   }
@@ -80,7 +96,8 @@ class ParticleNetwork {
   }
 
   resize() {
-    this.particleCount = Math.floor((this.canvas.width * this.canvas.height) / 10000) * props.density
+    const df = densityFactor.value || 1
+    this.particleCount = Math.floor((this.canvas.width * this.canvas.height) / 10000) * props.density * df
     this.init()
   }
 }
@@ -146,7 +163,8 @@ class FloatingCode {
       'let data = []'
     ]
 
-    for (let i = 0; i < 15 * props.density; i++) {
+    const df = densityFactor.value || 1
+    for (let i = 0; i < 15 * props.density * df; i++) {
       const snippet = snippets[Math.floor(Math.random() * snippets.length)]
       if (snippet) {
         this.codeSnippets.push(new CodeSnippet(this.canvas, snippet))
@@ -287,7 +305,8 @@ class FloatingHelloWorld {
     ]
 
     // 增加密度：30-50 个问候语
-    const count = Math.floor(30 + Math.random() * 20) * props.density
+    const df = densityFactor.value || 1
+    const count = Math.floor(30 + Math.random() * 20) * props.density * df
     for (let i = 0; i < count; i++) {
       const greeting = helloWorldTexts[Math.floor(Math.random() * helloWorldTexts.length)]
       if (greeting) {
@@ -574,6 +593,7 @@ const setupCanvas = () => {
   ctx.scale(window.devicePixelRatio, window.devicePixelRatio)
 
   // 根据 effect 类型创建对应的特效
+  densityFactor.value = computeDensityFactor()
   switch (props.effect) {
     case 'particles':
       effectInstance = new ParticleNetwork(canvas, ctx)
@@ -590,9 +610,14 @@ const setupCanvas = () => {
   }
 }
 
-const animate = () => {
-  if (effectInstance) {
-    effectInstance.draw()
+const animate = (now?: number) => {
+  // 限制刷新率（~30fps），降低移动端压力
+  const t = now || performance.now()
+  if (!lastTime || t - lastTime >= 33) {
+    if (effectInstance) {
+      effectInstance.draw()
+    }
+    lastTime = t
   }
   animationId = requestAnimationFrame(animate)
 }

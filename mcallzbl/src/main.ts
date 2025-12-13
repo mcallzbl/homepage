@@ -3,12 +3,11 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import i18n, { getInitialLocale, loadLocaleMessages } from './i18n'
-import VueScrollTo from 'vue-scrollto'
+// 移除第三方平滑滚动依赖，使用原生 scrollIntoView，减少初始包体积
 
 const app = createApp(App)
 
 app.use(i18n)
-app.use(VueScrollTo)
 
 // 按需加载当前语言后再挂载，避免首屏白屏/闪烁
 loadLocaleMessages(getInitialLocale())
