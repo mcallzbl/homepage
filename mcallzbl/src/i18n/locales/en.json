@@ -16,6 +16,10 @@
     "error": "An error occurred",
     "success": "Operation successful"
   },
+  "social": {
+    "visitGithub": "Visit my GitHub profile",
+    "visitBilibili": "Visit my Bilibili space"
+  },
   "home": {
     "title": "Welcome to My Portfolio",
     "subtitle": "Full-Stack Developer | Backend Specialist | Software Engineer",

@@ -6,7 +6,7 @@
       :href="link.url"
       :target="link.target || '_blank'"
       :class="`${link.name.toLowerCase()}-link`"
-      :aria-label="link.ariaLabel || link.name"
+      :aria-label="link.ariaLabel || (link.name === 'GitHub' ? t('social.visitGithub') : link.name === 'Bilibili' ? t('social.visitBilibili') : link.name)"
     >
       <img
         :src="link.icon"
@@ -18,6 +18,7 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 export interface SocialLink {
   name: string
   url: string
@@ -35,19 +36,20 @@ const props = withDefaults(defineProps<Props>(), {
     {
       name: 'GitHub',
       url: 'https://github.com/mcallzbl',
-      icon: new URL('@/assets/github-mark/github-mark-white.png', import.meta.url).href,
-      ariaLabel: 'Visit my GitHub profile'
+      icon: new URL('@/assets/github-mark/github-mark-white.svg', import.meta.url).href,
+      ariaLabel: ''
     },
     {
       name: 'Bilibili',
       url: 'https://space.bilibili.com/344689835',
       icon: new URL('@/assets/bilibili-white.svg', import.meta.url).href,
-      ariaLabel: 'Visit my Bilibili space'
+      ariaLabel: ''
     }
   ]
 })
 
 const socialLinks = props.links
+const { t } = useI18n()
 </script>
 
 <style scoped>
@@ -91,5 +93,10 @@ const socialLinks = props.links
 .bilibili-link:hover .bilibili-logo {
   opacity: 1;
   transform: scale(1.05);
+}
+
+/* Light mode: invert white GitHub mark for visibility */
+:deep(.app.light-mode) .github-logo {
+  filter: invert(1);
 }
 </style>

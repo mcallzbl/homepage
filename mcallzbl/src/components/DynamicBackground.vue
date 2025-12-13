@@ -355,10 +355,10 @@ class Greeting {
     ctx.fillText(this.text, 0, 0)
 
     // 绘制语言标签（更小、更淡）
-    ctx.font = `${this.fontSize - 2}px Arial`
-    const labelAlpha = Math.floor(this.opacity * 0.6 * 255).toString(16).padStart(2, '0')
-    ctx.fillStyle = `${color}${labelAlpha}`
-    ctx.fillText(`// ${this.lang}`, 0, this.fontSize + 4)
+    // ctx.font = `${this.fontSize - 2}px Arial`
+    // const labelAlpha = Math.floor(this.opacity * 0.6 * 255).toString(16).padStart(2, '0')
+    // ctx.fillStyle = `${color}${labelAlpha}`
+    // ctx.fillText(`// ${this.lang}`, 0, this.fontSize + 4)
 
     ctx.restore()
   }

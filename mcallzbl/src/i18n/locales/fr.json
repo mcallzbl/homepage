@@ -16,6 +16,10 @@
     "error": "Une erreur est survenue",
     "success": "Opération réussie"
   },
+  "social": {
+    "visitGithub": "Voir mon profil GitHub",
+    "visitBilibili": "Voir mon espace Bilibili"
+  },
   "portfolio": {
     "title": "Mes Projets",
     "subtitle": "Découvrez mon parcours technique à travers ces projets",

@@ -7,6 +7,7 @@ import LanguageSelector from '@/components/LanguageSelector.vue'
 import HeroSection from '@/components/HeroSection.vue'
 import PortfolioView from '@/views/PortfolioView.vue'
 import DynamicBackground from '@/components/DynamicBackground.vue'
+import GithubCorner from '@/components/GithubCorner.vue'
 
 const { locale } = useI18n()
 
@@ -45,6 +46,9 @@ onMounted(() => {
 
     <!-- Language Selector -->
     <LanguageSelector />
+
+    <!-- Site GitHub Link -->
+    <GithubCorner />
 
     <!-- Hero Section -->
     <div class="hero-container section">
@@ -227,6 +231,8 @@ onMounted(() => {
   width: 100%;
 }
 
+/* GitHub Corner Link */
+
 /* RTL Support */
 .app.rtl {
   direction: rtl;
@@ -261,5 +267,7 @@ onMounted(() => {
   .scroll-indicator {
     margin-top: 2rem;
   }
+
+  /* placeholder to keep block structure; styles moved to component */
 }
 </style>

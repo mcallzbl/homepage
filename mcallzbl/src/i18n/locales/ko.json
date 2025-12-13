@@ -16,6 +16,10 @@
     "error": "오류가 발생했습니다",
     "success": "작업이 성공적으로 완료되었습니다"
   },
+  "social": {
+    "visitGithub": "GitHub 프로필 방문",
+    "visitBilibili": "Bilibili 스페이스 방문"
+  },
   "portfolio": {
     "title": "내 프로젝트",
     "subtitle": "이 프로젝트들을 통해 저의 기술적인 여정을 살펴보세요",

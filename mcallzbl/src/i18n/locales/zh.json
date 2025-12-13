@@ -16,6 +16,10 @@
     "error": "发生错误",
     "success": "操作成功"
   },
+  "social": {
+    "visitGithub": "访问我的 GitHub 主页",
+    "visitBilibili": "访问我的 Bilibili 空间"
+  },
   "home": {
     "title": "欢迎来到我的作品集",
     "subtitle": "全栈开发工程师 | 后端专家 | 软件工程师",

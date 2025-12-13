@@ -16,6 +16,10 @@
     "error": "發生錯誤",
     "success": "操作成功"
   },
+  "social": {
+    "visitGithub": "造訪我的 GitHub 主頁",
+    "visitBilibili": "造訪我的 Bilibili 空間"
+  },
   "portfolio": {
     "title": "我的專案",
     "subtitle": "透過這些專案探索我的技術之旅",

@@ -16,6 +16,10 @@
     "error": "حدث خطأ",
     "success": "تمت العملية بنجاح"
   },
+  "social": {
+    "visitGithub": "زيارة ملفي على GitHub",
+    "visitBilibili": "زيارة صفحتي على Bilibili"
+  },
   "home": {
     "title": "مرحبا بك في معرض أعمالي",
     "subtitle": "مطور Full-Stack | متخصص في الواجهة الخلفية | مهندس برمجيات",
