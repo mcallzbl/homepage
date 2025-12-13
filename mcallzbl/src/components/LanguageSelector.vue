@@ -27,10 +27,13 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { loadLocaleMessages } from '@/i18n'
 import {
   SUPPORTED_LANGUAGES,
   LANGUAGE_NAMES,
-  isRTLLanguage
+  isRTLLanguage,
+  isSupportedLanguage,
+  type SupportedLanguage
 } from '@/config/languages'
 
 // 定义Props
@@ -88,10 +91,22 @@ const closeDropdown = () => {
 }
 
 // 选择语言
-const selectLanguage = (lang: string) => {
+const selectLanguage = async (lang: string) => {
   if (lang !== locale.value) {
-    // 更新语言
-    locale.value = lang
+    // 按需加载并切换语言（先加载再切换，避免切换后缺少文案）
+    try {
+      if (isSupportedLanguage(lang)) {
+        await loadLocaleMessages(lang as SupportedLanguage)
+      } else {
+        await loadLocaleMessages('en')
+      }
+    } catch {
+      // 加载失败时回退到英语
+      await loadLocaleMessages('en')
+    }
+
+    // 同步更新本地 locale 引用
+    locale.value = isSupportedLanguage(lang) ? (lang as SupportedLanguage) : 'en'
 
     // 更新URL参数（可选）
     if (props.updateUrl && (import.meta.env.DEV || window.history.replaceState)) {
