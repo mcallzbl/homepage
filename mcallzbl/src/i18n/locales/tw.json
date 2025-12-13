@@ -99,6 +99,11 @@
     "quoteStart": "“",
     "quoteEnd": "”"
   },
+  "footer": {
+    "licensedUnder": "基於",
+    "gplv3": "GNU GPLv3 授權",
+    "sourceCode": "原始碼"
+  },
   "friends": {
     "title": "友情連結",
     "empty": "暫無友情連結"

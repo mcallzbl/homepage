@@ -99,6 +99,11 @@
     "quoteStart": "「",
     "quoteEnd": "」"
   },
+  "footer": {
+    "licensedUnder": "ライセンス",
+    "gplv3": "GNU GPLv3",
+    "sourceCode": "ソースコード"
+  },
   "home": {
     "title": "私のポートフォリオへようこそ",
     "subtitle": "フルスタック開発者 | バックエンドスペシャリスト | ソフトウェアエンジニア",

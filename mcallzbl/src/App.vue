@@ -9,6 +9,7 @@ import PortfolioView from '@/views/PortfolioView.vue'
 import DynamicBackground from '@/components/DynamicBackground.vue'
 import GithubCorner from '@/components/GithubCorner.vue'
 import FriendLinks from '@/components/FriendLinks.vue'
+import SiteFooter from '@/components/SiteFooter.vue'
 
 const { locale } = useI18n()
 
@@ -92,6 +93,7 @@ const friendItems: FriendItem[] = [
       </div>
     </section>
   </div>
+  <SiteFooter />
 </template>
 
 <style scoped>

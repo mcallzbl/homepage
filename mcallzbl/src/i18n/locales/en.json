@@ -122,5 +122,10 @@
   "punctuation": {
     "quoteStart": "\"",
     "quoteEnd": "\""
+  },
+  "footer": {
+    "licensedUnder": "Licensed under",
+    "gplv3": "GNU GPLv3",
+    "sourceCode": "Source Code"
   }
 }

@@ -122,5 +122,10 @@
   "punctuation": {
     "quoteStart": "“",
     "quoteEnd": "”"
+  },
+  "footer": {
+    "licensedUnder": "基于",
+    "gplv3": "GNU GPLv3 许可证",
+    "sourceCode": "源代码"
   }
 }

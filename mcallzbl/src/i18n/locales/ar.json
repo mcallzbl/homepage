@@ -122,5 +122,10 @@
   "friends": {
     "title": "روابط الأصدقاء",
     "empty": "لا توجد روابط أصدقاء بعد"
+  },
+  "footer": {
+    "licensedUnder": "مرخّص بموجب",
+    "gplv3": "GNU GPLv3",
+    "sourceCode": "شفرة المصدر"
   }
 }

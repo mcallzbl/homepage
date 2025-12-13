@@ -99,6 +99,11 @@
     "quoteStart": "\"",
     "quoteEnd": "\""
   },
+  "footer": {
+    "licensedUnder": "라이선스",
+    "gplv3": "GNU GPLv3",
+    "sourceCode": "소스 코드"
+  },
   "home": {
     "title": "내 포트폴리오에 오신 것을 환영합니다",
     "subtitle": "풀스택 개발자 | 백엔드 전문가 | 소프트웨어 엔지니어",

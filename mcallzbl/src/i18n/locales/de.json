@@ -118,5 +118,10 @@
   "friends": {
     "title": "Freundeslinks",
     "empty": "Noch keine Freundeslinks"
+  },
+  "footer": {
+    "licensedUnder": "Lizenziert unter",
+    "gplv3": "GNU GPLv3",
+    "sourceCode": "Quellcode"
   }
 }

@@ -122,5 +122,10 @@
   "friends": {
     "title": "मित्र लिंक",
     "empty": "अभी कोई मित्र लिंक नहीं"
+  },
+  "footer": {
+    "licensedUnder": "लाइसेंस",
+    "gplv3": "GNU GPLv3",
+    "sourceCode": "स्रोत कोड"
   }
 }

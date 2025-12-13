@@ -99,6 +99,11 @@
     "quoteStart": "\"",
     "quoteEnd": "\""
   },
+  "footer": {
+    "licensedUnder": "Sous licence",
+    "gplv3": "GNU GPLv3",
+    "sourceCode": "Code source"
+  },
   "home": {
     "title": "Bienvenue dans mon portfolio",
     "subtitle": "Développeur Full-Stack | Spécialiste Backend | Ingénieur logiciel",
