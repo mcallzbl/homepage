@@ -105,7 +105,7 @@ const initIcons = () => {
   const list = props.items || []
   for (const it of list) {
     // Set placeholder first-letter avatar immediately (if not already a real icon)
-    if (!iconSrc[it.url] || iconSrc[it.url].startsWith('data:image/svg+xml')) {
+    if (!iconSrc[it.url] || (iconSrc[it.url] ?? '').startsWith('data:image/svg+xml')) {
       iconSrc[it.url] = getLetterDataUrl(it.title, it.url)
     }
     // Then prefetch real favicon and swap in when available
