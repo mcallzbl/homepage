@@ -36,3 +36,4 @@ coverage
 __screenshots__/
 
 mcallzbl.zip
+dist**.tar.gz
