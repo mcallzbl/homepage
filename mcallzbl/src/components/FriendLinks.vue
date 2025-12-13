@@ -9,13 +9,12 @@
         <div class="favicon-wrap">
           <img
             class="favicon"
-            :src="iconSrc[item.url] || getPrimaryFavicon(item.url)"
+            :src="iconSrc[item.url]"
             :alt="item.title"
             width="24"
             height="24"
             loading="lazy"
             fetchpriority="low"
-            @error="onIconError(item)"
           />
         </div>
         <div class="friend-content">
@@ -32,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, onMounted, watch } from 'vue'
 
 export interface FriendItem {
   title: string
@@ -46,9 +45,8 @@ interface Props {
 
 const props = defineProps<Props>()
 
-// Track which icon URL each link is using; rotate on error
+// Track current icon shown for each url
 const iconSrc = reactive<Record<string, string>>({})
-const iconTries = reactive<Record<string, number>>({})
 
 const getHost = (url: string) => {
   try {
@@ -67,7 +65,15 @@ const getOrigin = (url: string) => {
 }
 
 const getPrimaryFavicon = (url: string) => `${getOrigin(url)}/favicon.ico`
-const getGoogleFavicon = (url: string) => `https://www.google.com/s2/favicons?sz=64&domain=${encodeURIComponent(getHost(url))}`
+const getFaviconCandidates = (url: string) => {
+  const origin = getOrigin(url)
+  return [
+    `${origin}/favicon.ico`,
+    `${origin}/favicon.svg`,
+    `${origin}/apple-touch-icon.png`,
+    `${origin}/apple-touch-icon-precomposed.png`
+  ]
+}
 
 const letterPalette = ['#22c55e', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6', '#14b8a6']
 const stringHash = (s: string) => Array.from(s).reduce((acc, c) => (acc + c.charCodeAt(0)) | 0, 0)
@@ -79,16 +85,43 @@ const getLetterDataUrl = (title: string, url: string) => {
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`
 }
 
-const onIconError = (item: FriendItem) => {
+// Prefetch helpers: only replace src when real favicon successfully loads
+const loadImage = (src: string) =>
+  new Promise<boolean>(resolve => {
+    const img = new Image()
+    img.loading = 'eager'
+    img.decoding = 'async'
+    img.onload = () => resolve(true)
+    img.onerror = () => resolve(false)
+    img.src = src
+  })
+
+const prefetchFavicon = async (item: FriendItem) => {
   const url = item.url
-  const tries = (iconTries[url] || 0) + 1
-  iconTries[url] = tries
-  if (tries === 1) {
-    iconSrc[url] = getGoogleFavicon(url)
-  } else {
-    iconSrc[url] = getLetterDataUrl(item.title, url)
+  const candidates = getFaviconCandidates(url)
+  for (const src of candidates) {
+    const ok = await loadImage(src)
+    if (ok) {
+      iconSrc[url] = src
+      return
+    }
   }
 }
+
+const initIcons = () => {
+  const list = props.items || []
+  for (const it of list) {
+    // Set placeholder first-letter avatar immediately (if not already a real icon)
+    if (!iconSrc[it.url] || iconSrc[it.url].startsWith('data:image/svg+xml')) {
+      iconSrc[it.url] = getLetterDataUrl(it.title, it.url)
+    }
+    // Then prefetch real favicon and swap in when available
+    prefetchFavicon(it)
+  }
+}
+
+onMounted(initIcons)
+watch(() => props.items, initIcons, { deep: true })
 </script>
 
 <style scoped>

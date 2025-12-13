@@ -51,6 +51,7 @@ export const i18n = createI18n({
   locale: 'en', // 初始占位，将在加载后切换到真实语言
   fallbackLocale: 'en', // 回退语言
   messages: {},
+  warnHtmlMessage: false, // 关闭 HTML 内容警告（本项目文案包含 <-> 文本）
   globalInjection: true // 全局注入 $t 函数
 })
 
