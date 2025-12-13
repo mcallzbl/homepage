@@ -6,6 +6,7 @@
     rel="noopener noreferrer"
     :aria-label="aria || t('portfolio.viewOnGithub')"
     :title="title || 'GitHub'"
+    :style="cornerStyle"
   >
     <img :src="iconSrc" alt="GitHub" class="github-icon" :style="{ width: props.size + 'px', height: props.size + 'px' }" />
   </a>
@@ -14,6 +15,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { isRTLLanguage } from '@/config/languages'
 
 interface Props {
   href?: string
@@ -31,21 +33,31 @@ const props = withDefaults(defineProps<Props>(), {
   size: 28
 })
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 const iconSrc = computed(() => props.icon)
 const aria = computed(() => props.ariaLabel)
+
+// Positioning: mirror left/right based on RTL, while keeping responsive offset via CSS var
+const cornerStyle = computed(() => {
+  const rtl = isRTLLanguage(locale.value as string)
+  const offset = 'var(--corner-offset)'
+  return rtl
+    ? { left: 'auto', right: offset }
+    : { left: offset, right: 'auto' }
+})
 </script>
 
 <style scoped>
 .github-corner {
   position: fixed;
   top: 2rem;
-  left: 2rem;
   z-index: 1000;
   color: #e6edf3;
   opacity: 0.8;
   transition: transform 0.2s ease, opacity 0.2s ease;
+  /* default offset; used by inline style via var() */
+  --corner-offset: 2rem;
 }
 
 .github-corner:hover {
@@ -62,16 +74,21 @@ const aria = computed(() => props.ariaLabel)
 :global(.app.light-mode) .github-corner { color: #1f2937; }
 :global(.app.light-mode) .github-icon { filter: invert(1); }
 
-/* RTL: mirror position to avoid LanguageSelector overlap */
-:global(.app[dir="rtl"]) .github-corner,
-:global(.app.rtl) .github-corner {
-  left: auto;
-  right: 2rem;
+@media (max-width: 768px) {
+  .github-corner {
+    top: 1rem;
+    /* update responsive offset variable instead of hard-coding left/right */
+    --corner-offset: 1rem;
+  }
 }
 
-@media (max-width: 768px) {
-  .github-corner { top: 1rem; left: 1rem; }
-  :global(.app[dir="rtl"]) .github-corner,
-  :global(.app.rtl) .github-corner { right: 1rem; left: auto; }
+/* Fallback positioning using document direction on the app root */
+:global(.app[dir="rtl"]) .github-corner {
+  left: auto;
+  right: var(--corner-offset);
+}
+:global(.app:not([dir="rtl"])) .github-corner {
+  left: var(--corner-offset);
+  right: auto;
 }
 </style>
