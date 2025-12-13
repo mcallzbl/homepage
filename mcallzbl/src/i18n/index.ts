@@ -1,37 +1,28 @@
 import { createI18n } from 'vue-i18n'
-import { SUPPORTED_LANGUAGES, isSupportedLanguage, type SupportedLanguage } from '@/config/languages'
-import zhCN from './locales/zh.json'
-import zhTW from './locales/tw.json'
-import en from './locales/en.json'
-import ja from './locales/ja.json'
-import ko from './locales/ko.json'
-import ru from './locales/ru.json'
-import fr from './locales/fr.json'
-import es from './locales/es.json'
-import pt from './locales/pt.json'
-import ar from './locales/ar.json'
-import hi from './locales/hi.json'
-import de from './locales/de.json'
+import { isSupportedLanguage, type SupportedLanguage } from '@/config/languages'
 
-const messages = {
-  'zh-CN': zhCN,
-  'zh-TW': zhTW,
-  'en': en,
-  'ja': ja,
-  'ko': ko,
-  'ru': ru,
-  'fr': fr,
-  'es': es,
-  'pt': pt,
-  'ar': ar,
-  'hi': hi,
-  'de': de
+type LocaleMessages = Record<string, unknown>
+
+// 动态按需加载各语言包，减少首包体积
+const LOCALE_LOADERS: Record<SupportedLanguage, () => Promise<{ default: LocaleMessages }>> = {
+  'zh-CN': () => import('./locales/zh.json'),
+  'zh-TW': () => import('./locales/tw.json'),
+  'en': () => import('./locales/en.json'),
+  'ja': () => import('./locales/ja.json'),
+  'ko': () => import('./locales/ko.json'),
+  'ru': () => import('./locales/ru.json'),
+  'fr': () => import('./locales/fr.json'),
+  'es': () => import('./locales/es.json'),
+  'pt': () => import('./locales/pt.json'),
+  'ar': () => import('./locales/ar.json'),
+  'hi': () => import('./locales/hi.json'),
+  'de': () => import('./locales/de.json')
 }
 
 /**
  * 从 URL 参数或浏览器设置中获取初始语言
  */
-const getInitialLocale = (): SupportedLanguage => {
+export const getInitialLocale = (): SupportedLanguage => {
   // 1. 优先从 URL 参数中读取
   const urlParams = new URLSearchParams(window.location.search)
   const langParam = urlParams.get('lang')
@@ -55,12 +46,29 @@ const getInitialLocale = (): SupportedLanguage => {
   return 'en'
 }
 
-const i18n = createI18n({
+export const i18n = createI18n({
   legacy: false, // 使用 Composition API 模式
-  locale: getInitialLocale(), // 从 URL 或浏览器获取初始语言
+  locale: 'en', // 初始占位，将在加载后切换到真实语言
   fallbackLocale: 'en', // 回退语言
-  messages,
+  messages: {},
   globalInjection: true // 全局注入 $t 函数
 })
+
+/**
+ * 加载并设置语言包（按需加载）
+ */
+export async function loadLocaleMessages(locale: SupportedLanguage) {
+  // 确保回退语言已加载
+  if (!i18n.global.availableLocales.includes('en')) {
+    const { default: enMsgs } = await LOCALE_LOADERS['en']()
+    i18n.global.setLocaleMessage('en', enMsgs as LocaleMessages)
+  }
+
+  if (!i18n.global.availableLocales.includes(locale)) {
+    const { default: msgs } = await LOCALE_LOADERS[locale]()
+    i18n.global.setLocaleMessage(locale, msgs as LocaleMessages)
+  }
+  i18n.global.locale.value = locale
+}
 
 export default i18n
