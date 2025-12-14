@@ -1,7 +1,20 @@
 <template>
   <div class="project-card">
     <div class="project-header">
-      <h3 class="project-name">{{ project.name }}</h3>
+      <h3 class="project-name">
+        <a
+          v-if="project.githubUrl"
+          :href="project.githubUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-name-link"
+          :aria-label="$t('portfolio.viewOnGithub')"
+          title="GitHub"
+        >
+          {{ project.name }}
+        </a>
+        <span v-else>{{ project.name }}</span>
+      </h3>
       <div class="project-actions">
         <a
           v-if="project.githubUrl"
@@ -134,6 +147,16 @@ const linkify = (text: string) => {
   color: var(--color-heading);
   margin: 0;
   flex: 1;
+}
+
+.project-name-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.project-name-link:hover {
+  color: #22c55e;
 }
 
 .github-link {
