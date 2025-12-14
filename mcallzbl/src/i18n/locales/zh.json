@@ -95,6 +95,18 @@
           "4": "systemd 服务：开机自动应用主题",
           "5": "平台：已在 Arch Linux 验证"
         }
+      },
+      "androidstarter": {
+        "description": "我自用的 Android 项目模板，集成常用配置与依赖，比较简单。在 GitHub 上点击 ‘Use this template’ 即可生成自己的项目。",
+        "highlights": {
+          "0": "开发工具：KSP 注解处理、Hilt 依赖注入、启用 BuildConfig、compileSdk 36",
+          "1": "UI：Jetpack Compose Material 3、Material Icons Extended、强制使用高刷新率",
+          "2": "基础设施：BaseActivity 封装、Timber 日志（已在 App 初始化）、网络权限预配置",
+          "3": "数据：Retrofit 网络请求、Room 数据库、Gson JSON 解析、DataStore 轻量存储",
+          "4": "调试友好：Debug 版本使用独立包名，可与正式版共存",
+          "5": "协程：完整的 Kotlin 协程支持",
+          "6": "使用提示：点击 ‘Use this template’ 即可开始"
+        }
       }
     }
   },

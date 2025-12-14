@@ -75,6 +75,18 @@
           "4": "systemd सेवा: स्टार्टअप पर थीम लागू",
           "5": "प्लेटफ़ॉर्म: Arch Linux पर सत्यापित"
         }
+      },
+      "androidstarter": {
+        "description": "मेरे व्यक्तिगत उपयोग का सरल Android प्रोजेक्ट टेम्पलेट, जिसमें सामान्य कॉन्फ़िग और डिपेंडेंसी शामिल हैं। GitHub पर 'Use this template' क्लिक करके अपना प्रोजेक्ट बनाएँ।",
+        "highlights": {
+          "0": "डेव टूल्स: KSP, Hilt DI, BuildConfig सक्षम, compileSdk 36",
+          "1": "UI: Jetpack Compose Material 3, Material Icons Extended, हाई रिफ्रेश‑रेट को अनिवार्य करता है",
+          "2": "इन्फ्रास्ट्रक्चर: BaseActivity, Timber लॉगिंग (App में इनिशियलाइज़), नेटवर्क परमिशन प्रीसेट",
+          "3": "डेटा: Retrofit (नेटवर्क), Room DB, Gson (JSON), DataStore (लाइटवेट स्टोरेज)",
+          "4": "डिबग‑फ्रेंडली: Debug बिल्ड अलग applicationId के साथ; रिलीज़ के साथ सहअस्तित्व",
+          "5": "Coroutines: Kotlin Coroutines का पूर्ण समर्थन",
+          "6": "उपयोग सुझाव: 'Use this template' दबाकर शुरू करें"
+        }
       }
     }
   },

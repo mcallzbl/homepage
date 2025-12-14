@@ -118,6 +118,32 @@ const projects = computed<Project[]>(() => [
       t('portfolio.projects.grubtheme.highlights.4'),
       t('portfolio.projects.grubtheme.highlights.5')
     ]
+  },
+  {
+    name: 'Android-Starter',
+    description: t('portfolio.projects.androidstarter.description'),
+    githubUrl: 'https://github.com/mcallzbl/Android-Starter',
+    tags: [
+      'Android',
+      'Kotlin',
+      'Template',
+      'Jetpack Compose',
+      'Material 3',
+      'Hilt',
+      'KSP',
+      'Retrofit',
+      'Room',
+      'DataStore'
+    ],
+    highlights: [
+      t('portfolio.projects.androidstarter.highlights.0'),
+      t('portfolio.projects.androidstarter.highlights.1'),
+      t('portfolio.projects.androidstarter.highlights.2'),
+      t('portfolio.projects.androidstarter.highlights.3'),
+      t('portfolio.projects.androidstarter.highlights.4'),
+      t('portfolio.projects.androidstarter.highlights.5'),
+      t('portfolio.projects.androidstarter.highlights.6')
+    ]
   }
 ])
 </script>

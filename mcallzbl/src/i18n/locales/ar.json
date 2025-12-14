@@ -95,6 +95,18 @@
           "4": "خدمة systemd: تطبيق السمة عند بدء التشغيل",
           "5": "المنصة: تم التحقق على Arch Linux"
         }
+      },
+      "androidstarter": {
+        "description": "قالب مشروع Android بسيط أستخدمه شخصيًا، يدمج الإعدادات والاعتمادات الشائعة. على GitHub اضغط 'Use this template' لإنشاء مشروعك الخاص.",
+        "highlights": {
+          "0": "أدوات التطوير: KSP، Hilt DI، تمكين BuildConfig، و compileSdk 36",
+          "1": "واجهة المستخدم: Jetpack Compose Material 3 و Material Icons Extended ويفرض معدل تحديث مرتفع",
+          "2": "البنية التحتية: BaseActivity وتسجيل Timber (مهيأ في App) وصلاحية الشبكة مضبوطة مسبقًا",
+          "3": "البيانات: Retrofit (شبكة) و Room DB و Gson (JSON) و DataStore (تخزين خفيف)",
+          "4": "ملائم للتصحيح: إصدار Debug بمعرّف تطبيق منفصل؛ يتعايش مع إصدار Release",
+          "5": "Coroutines: دعم كامل لـ Kotlin Coroutines",
+          "6": "نصيحة: اضغط 'Use this template' للبدء"
+        }
       }
     }
   },

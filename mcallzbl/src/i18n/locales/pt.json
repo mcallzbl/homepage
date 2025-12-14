@@ -75,6 +75,18 @@
           "4": "Serviço systemd: aplicar tema na inicialização",
           "5": "Plataforma: verificado no Arch Linux"
         }
+      },
+      "androidstarter": {
+        "description": "Um template simples de projeto Android que uso pessoalmente; integra configurações e dependências comuns. No GitHub clique em 'Use this template' para criar seu próprio projeto.",
+        "highlights": {
+          "0": "Ferramentas: KSP, Hilt DI, BuildConfig habilitado, compileSdk 36",
+          "1": "UI: Jetpack Compose Material 3, Material Icons Extended, força alta taxa de atualização",
+          "2": "Infra: BaseActivity, logging com Timber (inicializado no App), permissão de rede pré‑configurada",
+          "3": "Dados: Retrofit (rede), banco Room, Gson (JSON), DataStore (armazenamento leve)",
+          "4": "Amigável ao debug: build Debug com applicationId separado; coexistência com Release",
+          "5": "Coroutines: suporte completo a Kotlin Coroutines",
+          "6": "Dica: clique em 'Use this template' para começar"
+        }
       }
     }
   },

@@ -95,6 +95,18 @@
           "4": "systemd service: apply theme at startup",
           "5": "Platform: verified on Arch Linux"
         }
+      },
+      "androidstarter": {
+        "description": "A simple Android project template I use personally that integrates common configs and dependencies. Click 'Use this template' on GitHub to create your own project.",
+        "highlights": {
+          "0": "Dev tools: KSP (Kotlin Symbol Processing), Hilt DI, BuildConfig enabled, compileSdk 36",
+          "1": "UI: Jetpack Compose Material 3, Material Icons Extended, forces high refresh rate",
+          "2": "Infrastructure: BaseActivity abstraction, Timber logging (initialized in App), network permission preset",
+          "3": "Data: Retrofit for networking, Room database, Gson JSON parsing, DataStore lightweight storage",
+          "4": "Debug-friendly: Debug build uses a separate applicationId and can coexist with release",
+          "5": "Coroutines: Full Kotlin Coroutines support",
+          "6": "Usage tip: Click 'Use this template' to start"
+        }
       }
     }
   },

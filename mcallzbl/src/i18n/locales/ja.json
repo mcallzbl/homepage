@@ -75,6 +75,18 @@
           "4": "systemd サービス：起動時にテーマを適用",
           "5": "プラットフォーム：Arch Linux で検証"
         }
+      },
+      "androidstarter": {
+        "description": "個人で使用しているシンプルな Android プロジェクト・テンプレート。一般的な設定と依存関係を統合。GitHub の『Use this template』で自分のプロジェクトを作成できます。",
+        "highlights": {
+          "0": "開発ツール：KSP（Kotlin Symbol Processing）、Hilt DI、BuildConfig 有効、compileSdk 36",
+          "1": "UI：Jetpack Compose Material 3、Material Icons Extended、高リフレッシュレートを強制",
+          "2": "基盤：BaseActivity 抽象化、Timber ログ（App で初期化済み）、ネットワーク権限のプリセット",
+          "3": "データ：Retrofit ネットワーク、Room データベース、Gson JSON 解析、DataStore 軽量ストレージ",
+          "4": "デバッグに優しい：Debug 版は別アプリIDでリリース版と共存可",
+          "5": "コルーチン：Kotlin Coroutines をフルサポート",
+          "6": "ヒント：『Use this template』を押して開始"
+        }
       }
     }
   },

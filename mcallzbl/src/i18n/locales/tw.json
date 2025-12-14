@@ -75,6 +75,18 @@
           "4": "systemd 服務：開機自動套用主題",
           "5": "平台：已在 Arch Linux 驗證"
         }
+      },
+      "androidstarter": {
+        "description": "我自用的 Android 專案樣板，整合常用設定與依賴，較為簡單。到 GitHub 按下『Use this template』即可建立自己的專案。",
+        "highlights": {
+          "0": "開發工具：KSP 註解處理、Hilt DI、啟用 BuildConfig、compileSdk 36",
+          "1": "UI：Jetpack Compose Material 3、Material Icons Extended、強制高更新率",
+          "2": "基礎設施：BaseActivity 封裝、Timber 日誌（已在 App 初始化）、網路權限預先配置",
+          "3": "資料：Retrofit 網路、Room 資料庫、Gson JSON、DataStore 輕量儲存",
+          "4": "偵錯友好：Debug 版使用獨立套件名，可與正式版共存",
+          "5": "協程：完整 Kotlin Coroutines 支援",
+          "6": "使用提示：點『Use this template』即可開始"
+        }
       }
     }
   },

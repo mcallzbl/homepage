@@ -75,6 +75,18 @@
           "4": "systemd 서비스: 부팅 시 테마 적용",
           "5": "플랫폼: Arch Linux에서 검증"
         }
+      },
+      "androidstarter": {
+        "description": "제가 개인적으로 사용하는 간단한 Android 프로젝트 템플릿으로, 자주 쓰는 설정과 의존성을 통합했습니다. GitHub에서 'Use this template'를 눌러 자신의 프로젝트를 만들 수 있습니다.",
+        "highlights": {
+          "0": "개발 도구: KSP, Hilt DI, BuildConfig 활성화, compileSdk 36",
+          "1": "UI: Jetpack Compose Material 3, Material Icons Extended, 고주사율 강제 적용",
+          "2": "인프라: BaseActivity 추상화, Timber 로그(App에서 초기화), 네트워크 권한 사전 설정",
+          "3": "데이터: Retrofit 네트워크, Room DB, Gson JSON 파싱, DataStore 경량 스토리지",
+          "4": "디버깅 친화적: Debug 빌드는 별도 applicationId 사용, 릴리스와 공존 가능",
+          "5": "코루틴: Kotlin Coroutines 전체 지원",
+          "6": "사용 팁: 'Use this template'로 시작"
+        }
       }
     }
   },
