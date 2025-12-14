@@ -44,6 +44,13 @@ const props = withDefaults(defineProps<Props>(), {
       url: 'https://space.bilibili.com/344689835',
       icon: new URL('@/assets/bilibili-white.svg', import.meta.url).href,
       ariaLabel: ''
+    },
+    {
+      name: 'Email',
+      url: 'mailto:contact@mail.mcallzbl.com',
+      icon: new URL('@/assets/email.svg', import.meta.url).href,
+      target: '_self',
+      ariaLabel: ''
     }
   ]
 })
@@ -62,7 +69,8 @@ const { t } = useI18n()
 }
 
 .github-link,
-.bilibili-link {
+.bilibili-link,
+.email-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -71,7 +79,8 @@ const { t } = useI18n()
 }
 
 .github-link:hover,
-.bilibili-link:hover {
+.bilibili-link:hover,
+.email-link:hover {
   transform: translateY(-1px);
 }
 
@@ -89,8 +98,16 @@ const { t } = useI18n()
   opacity: 0.8;
 }
 
+.email-logo {
+  width: 24px;
+  height: 24px;
+  transition: all 0.2s ease;
+  opacity: 0.8;
+}
+
 .github-link:hover .github-logo,
-.bilibili-link:hover .bilibili-logo {
+.bilibili-link:hover .bilibili-logo,
+.email-link:hover .email-logo {
   opacity: 1;
   transform: scale(1.05);
 }
@@ -99,4 +116,6 @@ const { t } = useI18n()
 :deep(.app.light-mode) .github-logo {
   filter: invert(1);
 }
+
+/* Email icon is already white; no invert needed */
 </style>
