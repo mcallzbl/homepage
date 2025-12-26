@@ -6,13 +6,16 @@
       :href="link.url"
       :target="link.target || '_blank'"
       :class="`${link.name.toLowerCase()}-link`"
-      :aria-label="link.ariaLabel || (link.name === 'GitHub' ? t('social.visitGithub') : link.name === 'Bilibili' ? t('social.visitBilibili') : link.name)"
+      :aria-label="
+        link.ariaLabel ||
+        (link.name === 'GitHub'
+          ? t('social.visitGithub')
+          : link.name === 'Bilibili'
+            ? t('social.visitBilibili')
+            : link.name)
+      "
     >
-      <img
-        :src="link.icon"
-        :alt="link.name"
-        :class="`${link.name.toLowerCase()}-logo`"
-      />
+      <img :src="link.icon" :alt="link.name" :class="`${link.name.toLowerCase()}-logo`" />
     </a>
   </div>
 </template>
@@ -37,22 +40,30 @@ const props = withDefaults(defineProps<Props>(), {
       name: 'GitHub',
       url: 'https://github.com/mcallzbl',
       icon: new URL('@/assets/github-mark/github-mark-white.svg', import.meta.url).href,
-      ariaLabel: ''
+      target: '_self',
+      ariaLabel: '',
     },
     {
       name: 'Bilibili',
       url: 'https://space.bilibili.com/344689835',
       icon: new URL('@/assets/bilibili-white.svg', import.meta.url).href,
-      ariaLabel: ''
+      ariaLabel: '',
     },
     {
       name: 'Email',
       url: 'mailto:contact@mail.mcallzbl.com',
       icon: new URL('@/assets/email.svg', import.meta.url).href,
       target: '_self',
-      ariaLabel: ''
-    }
-  ]
+      ariaLabel: '',
+    },
+    {
+      name: 'Blog',
+      url: 'https://www.devillusion.asia',
+      icon: new URL('@/assets/blog.svg', import.meta.url).href,
+      target: '_self',
+      ariaLabel: '',
+    },
+  ],
 })
 
 const socialLinks = props.links
@@ -70,7 +81,8 @@ const { t } = useI18n()
 
 .github-link,
 .bilibili-link,
-.email-link {
+.email-link,
+.blog-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -80,7 +92,8 @@ const { t } = useI18n()
 
 .github-link:hover,
 .bilibili-link:hover,
-.email-link:hover {
+.email-link:hover,
+.blog-link:hover {
   transform: translateY(-1px);
 }
 
@@ -92,30 +105,35 @@ const { t } = useI18n()
 }
 
 .bilibili-logo {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   transition: all 0.2s ease;
   opacity: 0.8;
 }
 
 .email-logo {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
+  transition: all 0.2s ease;
+  opacity: 0.8;
+}
+
+.blog-logo {
+  width: 20px;
+  height: 20px;
   transition: all 0.2s ease;
   opacity: 0.8;
 }
 
 .github-link:hover .github-logo,
 .bilibili-link:hover .bilibili-logo,
-.email-link:hover .email-logo {
+.email-link:hover .email-logo,
+.blog-link:hover .blog-logo,{
   opacity: 1;
   transform: scale(1.05);
 }
 
-/* Light mode: invert white GitHub mark for visibility */
 :deep(.app.light-mode) .github-logo {
   filter: invert(1);
 }
-
-/* Email icon is already white; no invert needed */
 </style>
