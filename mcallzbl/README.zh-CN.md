@@ -8,7 +8,7 @@
 - 在线地址：https://mcallzbl.com
 
 ## 特性
-- 多语言（zh‑CN/zh‑TW/en/ja/ko/ru/fr/es/pt/ar/hi/de），基于 Vue I18n
+- 多语言（zh‑CN/zh‑TW/en/ja/ko/ru/fr/es/pt/ar/hi/de/eo），基于 Vue I18n
 - RTL（阿拉伯语）支持，必要区域镜像布局
 - 动态背景（`DynamicBackground.vue`）随机效果
 - Hero 区域打字机效果与社交链接

@@ -16,7 +16,8 @@ const LOCALE_LOADERS: Record<SupportedLanguage, () => Promise<{ default: LocaleM
   'pt': () => import('./locales/pt.json'),
   'ar': () => import('./locales/ar.json'),
   'hi': () => import('./locales/hi.json'),
-  'de': () => import('./locales/de.json')
+  'de': () => import('./locales/de.json'),
+  'eo': () => import('./locales/eo.json')
 }
 
 /**

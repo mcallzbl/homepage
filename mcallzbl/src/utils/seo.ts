@@ -129,6 +129,7 @@ export function useSEO(config: Partial<SEOConfig>) {
       'Russian',
       'French',
       'Spanish',
+      'Esperanto',
       'Portuguese',
       'Arabic',
       'Hindi',

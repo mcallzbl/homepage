@@ -257,6 +257,7 @@ class FloatingHelloWorld {
       { text: 'Bonjour le monde', lang: 'Français' },
       { text: 'Hola Mundo', lang: 'Español' },
       { text: 'Hallo Welt', lang: 'Deutsch' },
+      { text: 'Saluton, Mondo', lang: 'Esperanto' },
       { text: 'Olá Mundo', lang: 'Português' },
       { text: 'Ciao Mondo', lang: 'Italiano' },
       { text: 'مرحبا بالعالم', lang: 'العربية' },

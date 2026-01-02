@@ -23,7 +23,8 @@ export const SUPPORTED_LANGUAGES = [
   'pt',
   'ar',
   'hi',
-  'de'
+  'de',
+  'eo'
 ] as const
 
 export type SupportedLanguage = typeof SUPPORTED_LANGUAGES[number]
@@ -41,7 +42,8 @@ export const LANGUAGE_NAMES: Record<SupportedLanguage, string> = {
   'pt': 'Português',
   'ar': 'العربية',
   'hi': 'हिन्दी',
-  'de': 'Deutsch'
+  'de': 'Deutsch',
+  'eo': 'Esperanto'
 }
 
 // RTL (从右到左) 语言列表
@@ -60,7 +62,8 @@ export const LANGUAGE_LOCALE_MAP: Record<SupportedLanguage, string> = {
   'pt': 'pt-PT',
   'ar': 'ar-SA',
   'hi': 'hi-IN',
-  'de': 'de-DE'
+  'de': 'de-DE',
+  'eo': 'eo'
 }
 
 /**

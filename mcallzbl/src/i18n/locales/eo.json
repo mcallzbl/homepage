@@ -1,0 +1,144 @@
+{
+  "common": {
+    "hello": "Saluton",
+    "welcome": "Bonvenon",
+    "language": "Lingvo",
+    "home": "Hejmo",
+    "about": "Pri",
+    "contact": "Kontakto"
+  },
+  "navigation": {
+    "home": "Hejmo",
+    "about": "Pri"
+  },
+  "messages": {
+    "loading": "Ŝargado...",
+    "error": "Okazis eraro",
+    "success": "Operacio sukcesis"
+  },
+  "social": {
+    "visitGithub": "Vizitu mian profilon en GitHub",
+    "visitBilibili": "Vizitu mian spacon en Bilibili"
+  },
+  "home": {
+    "title": "Bonvenon al mia Portfolio",
+    "subtitle": "Plenstaka programisto | Dorsflanka specialisto | Programara inĝeniero",
+    "scrollDown": "Rulumu malsupren",
+    "getStarted": "Ekkomenci",
+    "features": {
+      "fast": {
+        "title": "Rapida kaj Efika",
+        "description": "Optimumigita rendimento per modernaj teknologioj kaj plej bonaj praktikoj."
+      },
+      "modern": {
+        "title": "Moderna Teknologia Stako",
+        "description": "Konstruita per avangardaj kadroj kaj iloj por skaleblo."
+      },
+      "beautiful": {
+        "title": "Pura Dezajno",
+        "description": "Eleganta, respondema dezajno kiu bone funkcias tra ĉiuj aparatoj."
+      }
+    }
+  },
+  "portfolio": {
+    "title": "Miaj Projektoj",
+    "subtitle": "Esploru mian teknikan vojaĝon tra ĉi tiuj projektoj",
+    "viewOnGithub": "Vidi en GitHub",
+    "highlights": "Ĉefaj Elstaraĵoj",
+    "projects": {
+      "springlite": {
+        "description": "Esplora projekto por kompreni la kernajn principojn de Spring (IoC, AOP). Ne produkt-preta kadro, sed lernoprojekto fokusita je arkitekturo kaj dezajnŝablonoj.",
+        "highlights": {
+          "0": "Realigis kernan IoC-ujon kun mastrumado de vivociklo de faboj",
+          "1": "Konstruis AOP-funkciecon uzante dinamikajn prokurilojn",
+          "2": "Atingis komprenon pri internaj mekanismoj de la Spring-kadro"
+        }
+      },
+      "common": {
+        "description": "Rapida-lanĉa modulo por Spring Boot provizanta aŭtomatan envolvon de respondoj, tutmondan esceptotraktadon, pretuzeblan uzantmodulon, kaj rajtig-servilon por Aliyun OSS. Ankoraŭ ne tute matura starter: kopiu la modulon al nova projekto kaj ĝustigu ĝian pom; ĝi inkluzivas AutoConfiguration por komponantskanado sed mankas agordaj ecoj.",
+        "highlights": {
+          "0": "Aŭtomata envolvo de respondoj por unuecaj API-pagxoj",
+          "1": "Tutmondaj esceptoj traktataj tuj el skatolo",
+          "2": "Pretuzebla uzantmodulo",
+          "3": "Aliyun OSS-rajtiga malantaŭo"
+        }
+      },
+      "apklist": {
+        "description": "Potenca Android-apliko por listigi instalitajn aplikaĵojn kaj eksporti ilin per unu frapo. Subtenas JSON/CSV/TXT, serĉon kaj filtrilojn, rekonon de sistemaj aplikaĵoj, Material 3 + Jetpack Compose UI, kaj rendimentoptimumigojn por grandaj listoj.",
+        "highlights": {
+          "0": "Aŭtomate skanas instalitajn aplikaĵojn",
+          "1": "Serĉu laŭ nomo aŭ pakaĵo; filtru sistemajn/uzantajn aplikaĵojn",
+          "2": "Montru detalojn: nomo, pakaĵo, versio, piktogramo",
+          "3": "Eksportu al JSON, CSV aŭ TXT",
+          "4": "Moderna UI: Material 3, Jetpack Compose, hela/malluma etoso",
+          "5": "Rendimento: nesinkrona ŝargado, inteligenta kaŝmemoro, memorperspektiva rulumado",
+          "6": "Teknologia stako: Kotlin, Compose, MVVM, Hilt, Coroutines + Flow, Coil",
+          "7": "Eksportoj konservitaj al Download/ApkList"
+        }
+      },
+      "configformatter": {
+        "description": "Interreta konvertilo de agordaj dosierformatoj. Nuntempe funkcieco kaj fortikeco estas limigitaj; ĉefe rekomendata por Properties ↔ YAML konvertoj en Spring Boot-scenaroj.",
+        "highlights": {
+          "0": "Konverti inter Properties kaj YAML",
+          "1": "Fokuso je Spring Boot-agordaj scenaroj",
+          "2": "Interreta ilo: https://mcallzbl.github.io/config-formatter/",
+          "3": "Limigitaj funkcioj; ĉefe rekomendata por Properties ↔ YAML"
+        }
+      },
+      "grubtheme": {
+        "description": "Python-ilo por administri GRUB-startŝargilajn etosojn, kun komandlinia kaj grafika fasado. Inkluzivas etoslistojn kaj hazardan rotacion, instalas el dosiero/dosierujo/URL, kaj integriĝas kun systemd por aŭtomate ŝanĝi je ekŝalto. Nuntempe konfirmita en Arch Linux.",
+        "highlights": {
+          "0": "Ludlistoj: sinsekva aŭ hazarda rotacio",
+          "1": "Hazarda ŝanĝo: je ekŝalto aŭ laŭpete",
+          "2": "Plurfonta instalado: loka dosiero/dosierujo, fora URL",
+          "3": "Du reĝimoj: CLI kaj GUI",
+          "4": "systemd-servo: apliku etoson je ekŝalto",
+          "5": "Platformo: konfirmita en Arch Linux"
+        }
+      },
+      "androidstarter": {
+        "description": "Simpla Android-projekta ŝablono kiun mi persone uzas, integranta komunajn agordojn kaj dependecojn. Alklaku 'Use this template' en GitHub por krei vian propran projekton.",
+        "highlights": {
+          "0": "Programiloj: KSP (Kotlin Symbol Processing), Hilt DI, aktivigita BuildConfig, compileSdk 36",
+          "1": "UI: Jetpack Compose Material 3, Material Icons Extended, devigas altan refreŝigan indicon",
+          "2": "Infrastrukturo: BaseActivity-abstraktado, Timber-protokolado (inicializita en App), antaŭagordita retpermeso",
+          "3": "Datumoj: Retrofit por reto, Room-datumbazo, Gson-JSON-analizo, DataStore-malpeza konservado",
+          "4": "Sencimiga amikeco: Debug-konstruo uzas apartan applicationId kaj povas kunekzisti kun eldonversio",
+          "5": "Korioj: Plena subteno por Kotlin Coroutines",
+          "6": "Konsileto: Alklaku 'Use this template' por komenci"
+        }
+      }
+    }
+  },
+  "friends": {
+    "title": "Amikaj Ligiloj",
+    "empty": "Ankoraŭ neniuj amikaj ligiloj"
+  },
+  "profile": {
+    "greeting": "Saluton, mi estas",
+    "name": "mcallzbl",
+    "phonetic": "/məkˈɔːl.zɪbəl/",
+    "education": "Eduko kaj Fono",
+    "university": "Studento ĉe Nordorienta Universitato (Ĉinio)",
+    "major": "Fako: Programara Inĝenierado",
+    "focus": "Ĉefa fokuso: Dorsa evoluado",
+    "techStack": "Teknika Aro",
+    "backend": "Dorsflanko",
+    "languages": "Programlingvoj",
+    "frameworks": "Kadroj",
+    "databases": "Datumbazoj",
+    "messageQueue": "Mesaĝvico",
+    "devOps": "DevOps",
+    "welcomeQuote": "Bonvenon al mia hejmpaĝo, ni ambaŭ havu pli helan morgaŭon."
+  },
+  "punctuation": {
+    "quoteStart": "\"",
+    "quoteEnd": "\""
+  },
+  "footer": {
+    "licensedUnder": "Permesita laŭ",
+    "gplv3": "GNU GPLv3",
+    "sourceCode": "Fontkodo"
+  }
+}
+

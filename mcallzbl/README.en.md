@@ -8,7 +8,7 @@ Overview
 - Live site: https://mcallzbl.com
 
 Features
-- Multi-language (zh‑CN/zh‑TW/en/ja/ko/ru/fr/es/pt/ar/hi/de) via Vue I18n
+- Multi-language (zh‑CN/zh‑TW/en/ja/ko/ru/fr/es/pt/ar/hi/de/eo) via Vue I18n
 - RTL support (Arabic) with mirrored layout where needed
 - Dynamic backgrounds (`DynamicBackground.vue`) with randomized effects
 - Hero section with typewriter effect and social links
