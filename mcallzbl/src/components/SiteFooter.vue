@@ -8,27 +8,16 @@
         </span>
       </div>
       <div class="footer-right">
-        <a
-          class="footer-link"
-          :href="licenseUrl"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a class="footer-link" :href="licenseUrl" target="_blank" rel="noopener noreferrer">
           {{ $t('footer.licensedUnder') }} {{ $t('footer.gplv3') }}
         </a>
         <span class="sep">·</span>
-        <a
-          class="footer-link"
-          :href="repoUrl"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a class="footer-link" :href="repoUrl" target="_blank" rel="noopener noreferrer">
           {{ $t('footer.sourceCode') }}
         </a>
       </div>
     </div>
   </footer>
-  
 </template>
 
 <script setup lang="ts">
@@ -112,7 +101,9 @@ const yearText = currentYear <= START_YEAR ? String(START_YEAR) : `${START_YEAR}
   color: #22c55e;
 }
 
-.sep { opacity: 0.4; }
+.sep {
+  opacity: 0.4;
+}
 
 @media (max-width: 640px) {
   .footer-inner {
@@ -122,8 +113,14 @@ const yearText = currentYear <= START_YEAR ? String(START_YEAR) : `${START_YEAR}
     padding: 1rem 1rem; /* 增加内边距 */
   }
 
-  .footer-left { width: 100%; text-align: center; }
-  .footer-right { justify-content: center; gap: 0.35rem 0.6rem; }
+  .footer-left {
+    width: 100%;
+    text-align: center;
+  }
+  .footer-right {
+    justify-content: center;
+    gap: 0.35rem 0.6rem;
+  }
 }
 
 /* Light mode adjustments */

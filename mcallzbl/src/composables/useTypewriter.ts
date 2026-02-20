@@ -94,6 +94,6 @@ export function useTypewriter(options: TypewriterOptions = {}) {
     start,
     stop,
     reset,
-    skipAnimation
+    skipAnimation,
   }
 }

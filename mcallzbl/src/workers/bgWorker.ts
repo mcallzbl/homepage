@@ -19,7 +19,9 @@ interface ResizeMessage {
   devicePixelRatio: number
 }
 
-interface DisposeMessage { type: 'dispose' }
+interface DisposeMessage {
+  type: 'dispose'
+}
 
 type Message = InitMessage | ResizeMessage | DisposeMessage
 
@@ -54,7 +56,10 @@ class WParticle {
   y: number
   vx: number
   vy: number
-  constructor(private w: number, private h: number) {
+  constructor(
+    private w: number,
+    private h: number,
+  ) {
     this.x = Math.random() * w
     this.y = Math.random() * h
     this.vx = (Math.random() - 0.5) * 0.5
@@ -118,7 +123,11 @@ class WFormula {
   rot: number
   rSpeed: number
   text: string
-  constructor(private w: number, private h: number, text: string) {
+  constructor(
+    private w: number,
+    private h: number,
+    text: string,
+  ) {
     this.text = text
     this.x = Math.random() * w
     this.y = Math.random() * h
@@ -139,8 +148,17 @@ class WFormula {
 
 let formulas: WFormula[] = []
 const formulaTexts = [
-  'E = mc²', 'a² + b² = c²', 'e^(iπ) + 1 = 0',
-  '∫ f(x)dx', 'd/dx', 'Σ aₙe^(inx)', 'O(n log n)', 'Θ(n²)', 'Ω(n)', 'F = ma', '∇·E = ρ/ε₀'
+  'E = mc²',
+  'a² + b² = c²',
+  'e^(iπ) + 1 = 0',
+  '∫ f(x)dx',
+  'd/dx',
+  'Σ aₙe^(inx)',
+  'O(n log n)',
+  'Θ(n²)',
+  'Ω(n)',
+  'F = ma',
+  '∇·E = ρ/ε₀',
 ]
 
 const drawFormulas = () => {
@@ -162,7 +180,9 @@ const drawFormulas = () => {
     ctx.translate(f.x, f.y)
     ctx.rotate(f.rot)
     ctx.font = '14px Arial'
-    const alpha = Math.floor(f.opacity * 255).toString(16).padStart(2, '0')
+    const alpha = Math.floor(f.opacity * 255)
+      .toString(16)
+      .padStart(2, '0')
     ctx.fillStyle = `${color}${alpha}`
     ctx.fillText(f.text, 0, 0)
     ctx.restore()
@@ -174,13 +194,13 @@ const tick = () => {
   try {
     switch (effect) {
       case 'particles':
-        drawParticles();
+        drawParticles()
         break
       case 'hello-world':
       case 'code':
       case 'formulas':
       default:
-        drawFormulas();
+        drawFormulas()
         break
     }
   } catch {}

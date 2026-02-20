@@ -7,7 +7,12 @@
     </button>
 
     <!-- Language Dropdown List -->
-    <div v-if="isOpen" class="language-dropdown" :class="{ 'dropdown-open': isOpen }" :style="dropdownStyle">
+    <div
+      v-if="isOpen"
+      class="language-dropdown"
+      :class="{ 'dropdown-open': isOpen }"
+      :style="dropdownStyle"
+    >
       <div
         v-for="lang in sortedLanguages"
         :key="lang"
@@ -27,13 +32,13 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { loadLocaleMessages } from '@/i18n'
+import { LANGUAGE_STORAGE_KEY, loadLocaleMessages } from '@/i18n'
 import {
   SUPPORTED_LANGUAGES,
   LANGUAGE_NAMES,
   isRTLLanguage,
   isSupportedLanguage,
-  type SupportedLanguage
+  type SupportedLanguage,
 } from '@/config/languages'
 
 // 定义Props
@@ -47,7 +52,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   updateUrl: true,
-  sortBy: 'native'
+  sortBy: 'native',
 })
 
 // 定义Emits
@@ -93,30 +98,37 @@ const closeDropdown = () => {
 // 选择语言
 const selectLanguage = async (lang: string) => {
   if (lang !== locale.value) {
+    let targetLang: SupportedLanguage = isSupportedLanguage(lang)
+      ? (lang as SupportedLanguage)
+      : 'en'
+
     // 按需加载并切换语言（先加载再切换，避免切换后缺少文案）
     try {
-      if (isSupportedLanguage(lang)) {
-        await loadLocaleMessages(lang as SupportedLanguage)
-      } else {
-        await loadLocaleMessages('en')
-      }
+      await loadLocaleMessages(targetLang)
     } catch {
       // 加载失败时回退到英语
       await loadLocaleMessages('en')
+      targetLang = 'en'
     }
 
     // 同步更新本地 locale 引用
-    locale.value = isSupportedLanguage(lang) ? (lang as SupportedLanguage) : 'en'
+    locale.value = targetLang
 
-    // 更新URL参数（可选）
-    if (props.updateUrl && (import.meta.env.DEV || window.history.replaceState)) {
-      const url = new URL(window.location.href)
-      if (lang === 'en') {
-        url.searchParams.delete('lang')
+    // 记住用户语言偏好
+    try {
+      window.localStorage.setItem(LANGUAGE_STORAGE_KEY, targetLang)
+    } catch {}
+
+    // 使用路径导航：/ (en) 或 /<lang>
+    if (props.updateUrl) {
+      const base = window.location.origin
+      const target = targetLang === 'en' ? '/' : `/${targetLang}`
+      // 使用 replaceState 避免整页刷新，保持当前滚动
+      if (window.history.replaceState) {
+        window.history.replaceState({}, '', base + target)
       } else {
-        url.searchParams.set('lang', lang)
+        window.location.href = target
       }
-      window.history.replaceState({}, '', url.toString())
     }
 
     // 触发语言变更事件
@@ -136,7 +148,7 @@ const selectorStyle = computed(() => {
   const isRTL = isRTLLanguage(locale.value as string)
   return {
     right: isRTL ? 'auto' : '2rem',
-    left: isRTL ? '2rem' : 'auto'
+    left: isRTL ? '2rem' : 'auto',
   }
 })
 
@@ -144,7 +156,7 @@ const dropdownStyle = computed(() => {
   const isRTL = isRTLLanguage(locale.value as string)
   return {
     right: isRTL ? 'auto' : '0',
-    left: isRTL ? '0' : 'auto'
+    left: isRTL ? '0' : 'auto',
   }
 })
 
@@ -274,7 +286,6 @@ onUnmounted(() => {
   font-size: 0.9rem;
   color: #10b981;
 }
-
 
 /* Light mode支持 */
 :deep(.app.light-mode) .lang-toggle {

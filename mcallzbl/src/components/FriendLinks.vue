@@ -1,11 +1,13 @@
 <template>
   <div class="friend-links" v-if="items && items.length">
-    <div
-      v-for="item in items"
-      :key="item.url"
-      class="friend-card"
-    >
-      <a :href="item.url" target="_blank" rel="noopener noreferrer" :aria-label="item.title" class="friend-link">
+    <div v-for="item in items" :key="item.url" class="friend-card">
+      <a
+        :href="item.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        :aria-label="item.title"
+        class="friend-link"
+      >
         <div class="favicon-wrap">
           <img
             class="favicon"
@@ -27,7 +29,6 @@
   <div v-else class="friend-links-empty">
     {{ $t('friends.empty') }}
   </div>
-  
 </template>
 
 <script setup lang="ts">
@@ -78,7 +79,7 @@ const getLetterDataUrl = (title: string, url: string) => {
 
 // Prefetch helpers: only replace src when real favicon successfully loads
 const loadImage = (src: string) =>
-  new Promise<boolean>(resolve => {
+  new Promise<boolean>((resolve) => {
     const img = new Image()
     img.loading = 'eager'
     img.decoding = 'async'
@@ -128,14 +129,17 @@ watch(() => props.items, initIcons, { deep: true })
   background: var(--color-background-soft);
   border: 1px solid var(--color-border);
   border-radius: 12px;
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .friend-link {
   display: flex;
   align-items: center;
-  gap: .75rem;
-  padding: .9rem 1rem;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
   color: var(--color-text);
   text-decoration: none;
 }
@@ -149,7 +153,7 @@ watch(() => props.items, initIcons, { deep: true })
 .friend-card:hover {
   transform: translateY(-3px);
   border-color: rgba(34, 197, 94, 0.35);
-  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .favicon-wrap {
@@ -175,7 +179,7 @@ watch(() => props.items, initIcons, { deep: true })
 .friend-desc {
   font-size: 0.85rem;
   color: var(--color-text);
-  opacity: .75;
+  opacity: 0.75;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -184,10 +188,12 @@ watch(() => props.items, initIcons, { deep: true })
 .friend-links-empty {
   text-align: center;
   color: var(--color-text);
-  opacity: .7;
+  opacity: 0.7;
 }
 
 @media (max-width: 768px) {
-  .friend-links { grid-template-columns: 1fr; }
+  .friend-links {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

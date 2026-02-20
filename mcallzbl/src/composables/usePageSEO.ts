@@ -27,7 +27,7 @@ export function usePageSEO(config: PageSEOConfig = {}) {
     keywords,
     author = 'mcallzbl',
     image = '/logo.svg',
-    type = 'website'
+    type = 'website',
   } = config
 
   /**
@@ -40,7 +40,7 @@ export function usePageSEO(config: PageSEOConfig = {}) {
       if (lang === 'en') {
         urls[lang] = baseUrl
       } else {
-        urls[lang] = `${baseUrl}?lang=${lang}`
+        urls[lang] = `${baseUrl}/${lang}`
       }
     })
 
@@ -53,17 +53,22 @@ export function usePageSEO(config: PageSEOConfig = {}) {
   const setupSEO = () => {
     const alternateUrls = generateAlternateUrls()
     const currentLang = locale.value as SupportedLanguage
+    const profileName = t('profile.name')
+    const phonetic = t('profile.phonetic')
 
     useSEO({
-      title: title || 'mcallzbl',
-      description: description || t('profile.welcomeQuote'),
-      keywords: keywords || `mcallzbl, ${t('profile.education')}, ${t('profile.focus')}, ${t('profile.backend')}, Software Engineer, Backend Developer`,
+      title: title || `${profileName} ${phonetic} | ${t('home.subtitle')}`,
+      description: description || `${t('profile.welcomeQuote')} ${profileName} (${phonetic}).`,
+      keywords:
+        keywords ||
+        `mcallzbl, mcallzbl pronunciation, ${phonetic}, ${t('profile.education')}, ${t('profile.focus')}, ${t('profile.backend')}, Software Engineer, Backend Developer`,
       author,
       url: alternateUrls[currentLang] || baseUrl,
       image,
       type,
       locale: getLanguageLocale(currentLang),
-      alternateLanguages: alternateUrls
+      pronunciation: phonetic,
+      alternateLanguages: alternateUrls,
     })
   }
 
@@ -71,6 +76,6 @@ export function usePageSEO(config: PageSEOConfig = {}) {
   watch(locale, setupSEO, { immediate: true })
 
   return {
-    setupSEO
+    setupSEO,
   }
 }

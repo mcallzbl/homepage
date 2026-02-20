@@ -5,11 +5,7 @@
       <p class="portfolio-subtitle">{{ $t('portfolio.subtitle') }}</p>
 
       <div class="projects-grid">
-        <ProjectCard
-          v-for="project in projects"
-          :key="project.name"
-          :project="project"
-        />
+        <ProjectCard v-for="project in projects" :key="project.name" :project="project" />
       </div>
     </div>
   </div>
@@ -31,8 +27,8 @@ const projects = computed<Project[]>(() => [
     highlights: [
       t('portfolio.projects.springlite.highlights.0'),
       t('portfolio.projects.springlite.highlights.1'),
-      t('portfolio.projects.springlite.highlights.2')
-    ]
+      t('portfolio.projects.springlite.highlights.2'),
+    ],
   },
   {
     name: 'common',
@@ -46,14 +42,14 @@ const projects = computed<Project[]>(() => [
       'Response Wrapper',
       'User Module',
       'Aliyun OSS',
-      'Starter (WIP)'
+      'Starter (WIP)',
     ],
     highlights: [
       t('portfolio.projects.common.highlights.0'),
       t('portfolio.projects.common.highlights.1'),
       t('portfolio.projects.common.highlights.2'),
-      t('portfolio.projects.common.highlights.3')
-    ]
+      t('portfolio.projects.common.highlights.3'),
+    ],
   },
   {
     name: 'apklist',
@@ -69,55 +65,39 @@ const projects = computed<Project[]>(() => [
       'Coroutines',
       'Flow',
       'Coil',
-      'Export'
+      'Export',
     ],
     highlights: [
       t('portfolio.projects.apklist.highlights.0'),
       t('portfolio.projects.apklist.highlights.1'),
-      t('portfolio.projects.apklist.highlights.2')
-    ]
+      t('portfolio.projects.apklist.highlights.2'),
+    ],
   },
   {
     name: 'config-formatter',
     description: t('portfolio.projects.configformatter.description'),
     githubUrl: 'https://github.com/mcallzbl/config-formatter',
-    tags: [
-      'Web',
-      'Converter',
-      'Config',
-      'Properties',
-      'YAML',
-      'Spring Boot',
-      'Online'
-    ],
+    tags: ['Web', 'Converter', 'Config', 'Properties', 'YAML', 'Spring Boot', 'Online'],
     highlights: [
       t('portfolio.projects.configformatter.highlights.0'),
       t('portfolio.projects.configformatter.highlights.1'),
       t('portfolio.projects.configformatter.highlights.2'),
-      t('portfolio.projects.configformatter.highlights.3')
-    ]
+      t('portfolio.projects.configformatter.highlights.3'),
+    ],
   },
   {
     name: 'grub-theme',
     description: t('portfolio.projects.grubtheme.description'),
     githubUrl: 'https://github.com/mcallzbl/grub-theme',
-    tags: [
-      'Python',
-      'GRUB',
-      'Theme Management',
-      'CLI',
-      'GUI',
-      'systemd',
-      'Arch Linux'
-    ],
+    tags: ['Python', 'GRUB', 'Theme Management', 'CLI', 'GUI', 'systemd', 'Arch Linux'],
     highlights: [
       t('portfolio.projects.grubtheme.highlights.0'),
       t('portfolio.projects.grubtheme.highlights.1'),
       t('portfolio.projects.grubtheme.highlights.2'),
       t('portfolio.projects.grubtheme.highlights.3'),
       t('portfolio.projects.grubtheme.highlights.4'),
-      t('portfolio.projects.grubtheme.highlights.5')
-    ]
+      t('portfolio.projects.grubtheme.highlights.5'),
+    ],
   },
   {
     name: 'Android-Starter',
@@ -133,7 +113,7 @@ const projects = computed<Project[]>(() => [
       'KSP',
       'Retrofit',
       'Room',
-      'DataStore'
+      'DataStore',
     ],
     highlights: [
       t('portfolio.projects.androidstarter.highlights.0'),
@@ -142,9 +122,9 @@ const projects = computed<Project[]>(() => [
       t('portfolio.projects.androidstarter.highlights.3'),
       t('portfolio.projects.androidstarter.highlights.4'),
       t('portfolio.projects.androidstarter.highlights.5'),
-      t('portfolio.projects.androidstarter.highlights.6')
-    ]
-  }
+      t('portfolio.projects.androidstarter.highlights.6'),
+    ],
+  },
 ])
 </script>
 

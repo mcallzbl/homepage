@@ -17,7 +17,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   effect: 'formulas',
   color: '#22c55e',
-  density: 1
+  density: 1,
 })
 
 const canvasRef = ref<HTMLCanvasElement | null>(null)
@@ -32,7 +32,10 @@ const densityFactor = ref(1)
 
 const computeDensityFactor = () => {
   try {
-    const prefersReduced = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const prefersReduced =
+      typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (prefersReduced) return 0
     const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
     return isMobile ? 0.5 : 1
@@ -68,7 +71,7 @@ class ParticleNetwork {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
 
     // 更新和绘制粒子
-    this.particles.forEach(particle => {
+    this.particles.forEach((particle) => {
       particle.update()
       particle.draw(this.ctx, props.color || '#22c55e')
     })
@@ -86,7 +89,9 @@ class ParticleNetwork {
 
         if (distance < 120) {
           this.ctx.beginPath()
-          const alpha = Math.floor((1 - distance / 120) * 40).toString(16).padStart(2, '0')
+          const alpha = Math.floor((1 - distance / 120) * 40)
+            .toString(16)
+            .padStart(2, '0')
           this.ctx.strokeStyle = `${props.color}${alpha}`
           this.ctx.lineWidth = 0.5
           this.ctx.moveTo(p1.x, p1.y)
@@ -99,7 +104,8 @@ class ParticleNetwork {
 
   resize() {
     const df = densityFactor.value || 1
-    this.particleCount = Math.floor((this.canvas.width * this.canvas.height) / 10000) * props.density * df
+    this.particleCount =
+      Math.floor((this.canvas.width * this.canvas.height) / 10000) * props.density * df
     this.init()
   }
 }
@@ -162,7 +168,7 @@ class FloatingCode {
       'console.log()',
       'return true;',
       '<Component />',
-      'let data = []'
+      'let data = []',
     ]
 
     const df = densityFactor.value || 1
@@ -176,7 +182,7 @@ class FloatingCode {
 
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-    this.codeSnippets.forEach(snippet => {
+    this.codeSnippets.forEach((snippet) => {
       snippet.update()
       snippet.draw(this.ctx, props.color || '#22c55e')
     })
@@ -214,7 +220,9 @@ class CodeSnippet {
 
   draw(ctx: CanvasRenderingContext2D, color: string) {
     ctx.font = '12px monospace'
-    const alpha = Math.floor(this.opacity * 255).toString(16).padStart(2, '0')
+    const alpha = Math.floor(this.opacity * 255)
+      .toString(16)
+      .padStart(2, '0')
     ctx.fillStyle = `${color}${alpha}`
     ctx.fillText(this.text, this.x, this.y)
   }
@@ -320,7 +328,7 @@ class FloatingHelloWorld {
 
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-    this.greetings.forEach(greeting => {
+    this.greetings.forEach((greeting) => {
       greeting.update()
       greeting.draw(this.ctx, props.color || '#22c55e')
     })
@@ -372,7 +380,9 @@ class Greeting {
 
     // 绘制主文本
     ctx.font = `${this.fontSize}px "SF Mono", Monaco, monospace`
-    const alpha = Math.floor(this.opacity * 255).toString(16).padStart(2, '0')
+    const alpha = Math.floor(this.opacity * 255)
+      .toString(16)
+      .padStart(2, '0')
     ctx.fillStyle = `${color}${alpha}`
     ctx.fillText(this.text, 0, 0)
 
@@ -510,7 +520,7 @@ class FloatingFormulas {
       '∀ ∃ ∈ ∉',
       '⊂ ⊃ ∪ ∩',
       '≤ ≥ ≠ ≈',
-      '∞ ∂ ∇ ∫'
+      '∞ ∂ ∇ ∫',
     ]
 
     // 增加密度：从 12 个增加到 40-60 个公式
@@ -525,7 +535,7 @@ class FloatingFormulas {
 
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-    this.formulas.forEach(formula => {
+    this.formulas.forEach((formula) => {
       formula.update()
       formula.draw(this.ctx, props.color || '#22c55e')
     })
@@ -571,14 +581,17 @@ class Formula {
     ctx.translate(this.x, this.y)
     ctx.rotate(this.rotation)
     ctx.font = '14px Arial'
-    const alpha = Math.floor(this.opacity * 255).toString(16).padStart(2, '0')
+    const alpha = Math.floor(this.opacity * 255)
+      .toString(16)
+      .padStart(2, '0')
     ctx.fillStyle = `${color}${alpha}`
     ctx.fillText(this.text, 0, 0)
     ctx.restore()
   }
 }
 
-let effectInstance: ParticleNetwork | FloatingCode | FloatingFormulas | FloatingHelloWorld | null = null
+let effectInstance: ParticleNetwork | FloatingCode | FloatingFormulas | FloatingHelloWorld | null =
+  null
 
 const setupCanvas = () => {
   if (!canvasRef.value) return
@@ -600,20 +613,28 @@ const setupCanvas = () => {
   const supportsOffscreen = 'transferControlToOffscreen' in canvas && typeof Worker !== 'undefined'
   if (supportsOffscreen) {
     try {
-      type OffscreenCapable = HTMLCanvasElement & { transferControlToOffscreen: () => OffscreenCanvas }
+      type OffscreenCapable = HTMLCanvasElement & {
+        transferControlToOffscreen: () => OffscreenCanvas
+      }
       const off = (canvas as OffscreenCapable).transferControlToOffscreen()
       workerRef = new Worker(new URL('@/workers/bgWorker.ts', import.meta.url), { type: 'module' })
       const dpr = window.devicePixelRatio || 1
-      workerRef.postMessage({
-        type: 'init',
-        canvas: off,
-        color: props.color,
-        density: props.density,
-        densityFactor: densityFactor.value,
-        effect: props.effect,
-        devicePixelRatio: dpr,
-        size: { width: canvas.clientWidth || window.innerWidth, height: canvas.clientHeight || window.innerHeight }
-      }, [off as unknown as Transferable])
+      workerRef.postMessage(
+        {
+          type: 'init',
+          canvas: off,
+          color: props.color,
+          density: props.density,
+          densityFactor: densityFactor.value,
+          effect: props.effect,
+          devicePixelRatio: dpr,
+          size: {
+            width: canvas.clientWidth || window.innerWidth,
+            height: canvas.clientHeight || window.innerHeight,
+          },
+        },
+        [off as unknown as Transferable],
+      )
       usingWorker = true
       return
     } catch {
@@ -655,8 +676,11 @@ const handleResize = () => {
     const dpr2 = window.devicePixelRatio || 1
     workerRef.postMessage({
       type: 'resize',
-      size: { width: canvas.clientWidth || window.innerWidth, height: canvas.clientHeight || window.innerHeight },
-      devicePixelRatio: dpr2
+      size: {
+        width: canvas.clientWidth || window.innerWidth,
+        height: canvas.clientHeight || window.innerHeight,
+      },
+      devicePixelRatio: dpr2,
     })
     return
   }

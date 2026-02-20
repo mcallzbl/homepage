@@ -8,7 +8,12 @@
     :title="title || 'GitHub'"
     :style="cornerStyle"
   >
-    <img :src="iconSrc" alt="GitHub" class="github-icon" :style="{ width: props.size + 'px', height: props.size + 'px' }" />
+    <img
+      :src="iconSrc"
+      alt="GitHub"
+      class="github-icon"
+      :style="{ width: props.size + 'px', height: props.size + 'px' }"
+    />
   </a>
 </template>
 
@@ -30,7 +35,7 @@ const props = withDefaults(defineProps<Props>(), {
   ariaLabel: '',
   title: 'GitHub',
   icon: new URL('@/assets/github-mark/github-mark-white.svg', import.meta.url).href,
-  size: 28
+  size: 28,
 })
 
 const { t, locale } = useI18n()
@@ -42,9 +47,7 @@ const aria = computed(() => props.ariaLabel)
 const cornerStyle = computed(() => {
   const rtl = isRTLLanguage(locale.value as string)
   const offset = 'var(--corner-offset)'
-  return rtl
-    ? { left: 'auto', right: offset }
-    : { left: offset, right: 'auto' }
+  return rtl ? { left: 'auto', right: offset } : { left: offset, right: 'auto' }
 })
 </script>
 
@@ -55,7 +58,9 @@ const cornerStyle = computed(() => {
   z-index: 1000;
   color: #e6edf3;
   opacity: 0.8;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
   /* default offset; used by inline style via var() */
   --corner-offset: 2rem;
 }
@@ -71,8 +76,12 @@ const cornerStyle = computed(() => {
 }
 
 /* Light mode tweaks */
-:global(.app.light-mode) .github-corner { color: #1f2937; }
-:global(.app.light-mode) .github-icon { filter: invert(1); }
+:global(.app.light-mode) .github-corner {
+  color: #1f2937;
+}
+:global(.app.light-mode) .github-icon {
+  filter: invert(1);
+}
 
 @media (max-width: 768px) {
   .github-corner {
@@ -83,11 +92,11 @@ const cornerStyle = computed(() => {
 }
 
 /* Fallback positioning using document direction on the app root */
-:global(.app[dir="rtl"]) .github-corner {
+:global(.app[dir='rtl']) .github-corner {
   left: auto;
   right: var(--corner-offset);
 }
-:global(.app:not([dir="rtl"])) .github-corner {
+:global(.app:not([dir='rtl'])) .github-corner {
   left: var(--corner-offset);
   right: auto;
 }

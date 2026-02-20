@@ -24,26 +24,26 @@ export const SUPPORTED_LANGUAGES = [
   'ar',
   'hi',
   'de',
-  'eo'
+  'eo',
 ] as const
 
-export type SupportedLanguage = typeof SUPPORTED_LANGUAGES[number]
+export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number]
 
 // 语言显示名称映射
 export const LANGUAGE_NAMES: Record<SupportedLanguage, string> = {
   'zh-CN': '简体中文',
   'zh-TW': '繁體中文',
-  'en': 'English',
-  'ja': '日本語',
-  'ko': '한국어',
-  'ru': 'Русский',
-  'fr': 'Français',
-  'es': 'Español',
-  'pt': 'Português',
-  'ar': 'العربية',
-  'hi': 'हिन्दी',
-  'de': 'Deutsch',
-  'eo': 'Esperanto'
+  en: 'English',
+  ja: '日本語',
+  ko: '한국어',
+  ru: 'Русский',
+  fr: 'Français',
+  es: 'Español',
+  pt: 'Português',
+  ar: 'العربية',
+  hi: 'हिन्दी',
+  de: 'Deutsch',
+  eo: 'Esperanto',
 }
 
 // RTL (从右到左) 语言列表
@@ -53,17 +53,17 @@ export const RTL_LANGUAGES: SupportedLanguage[] = ['ar']
 export const LANGUAGE_LOCALE_MAP: Record<SupportedLanguage, string> = {
   'zh-CN': 'zh-CN',
   'zh-TW': 'zh-TW',
-  'en': 'en-US',
-  'ja': 'ja-JP',
-  'ko': 'ko-KR',
-  'ru': 'ru-RU',
-  'fr': 'fr-FR',
-  'es': 'es-ES',
-  'pt': 'pt-PT',
-  'ar': 'ar-SA',
-  'hi': 'hi-IN',
-  'de': 'de-DE',
-  'eo': 'eo'
+  en: 'en-US',
+  ja: 'ja-JP',
+  ko: 'ko-KR',
+  ru: 'ru-RU',
+  fr: 'fr-FR',
+  es: 'es-ES',
+  pt: 'pt-PT',
+  ar: 'ar-SA',
+  hi: 'hi-IN',
+  de: 'de-DE',
+  eo: 'eo',
 }
 
 /**

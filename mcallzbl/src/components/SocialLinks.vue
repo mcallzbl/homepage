@@ -128,7 +128,7 @@ const { t } = useI18n()
 .github-link:hover .github-logo,
 .bilibili-link:hover .bilibili-logo,
 .email-link:hover .email-logo,
-.blog-link:hover .blog-logo,{
+.blog-link:hover .blog-logo {
   opacity: 1;
   transform: scale(1.05);
 }
