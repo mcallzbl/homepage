@@ -58,7 +58,7 @@ const props = withDefaults(defineProps<Props>(), {
     },
     {
       name: 'Blog',
-      url: 'https://www.devillusion.asia',
+      url: 'https://blog.mcallzbl.com',
       icon: new URL('@/assets/blog.svg', import.meta.url).href,
       target: '_self',
       ariaLabel: '',
